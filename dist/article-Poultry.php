@@ -391,7 +391,7 @@
           <!-- Card -->
           <a class="card card-ghost card-transition-zoom h-100" href="./article-Poultry.php">
             <div class="card-transition-zoom-item">
-              <img class="card-img" src="./assets/img/Swine/m7.jpg" style=width="580" height="250" alt="Image Description">
+              <img class="card-img" src="./assets/img/Swine/m7.jpg" width="580" height="250" alt="Image Description">
             </div>
 
             <div class="card-body">
@@ -413,7 +413,7 @@
           <!-- Card -->
           <a class="card card-ghost card-transition-zoom h-100" href="./article-Beef.html">
             <div class="card-pinned card-transition-zoom-item">
-              <img class="card-img" src="./assets/img/DairyBeef/beef2.jpg" style=width="580" height="250" alt="Image Description">
+              <img class="card-img" src="./assets/img/DairyBeef/beef2.jpg" width="580" height="250" alt="Image Description">
             </div>
 
             <div class="card-body">
@@ -434,7 +434,7 @@
           <!-- Card -->
           <a class="card card-ghost card-transition-zoom h-100" href="./article-Aqua.html">
             <div class="card-transition-zoom-item">
-              <img class="card-img" src="./assets/img/Aqua/aqua9.jpg" style=width="580" height="250" alt="Image Description">
+              <img class="card-img" src="./assets/img/Aqua/aqua9.jpg" width="580" height="250" alt="Image Description">
             </div>
 
             <div class="card-body">

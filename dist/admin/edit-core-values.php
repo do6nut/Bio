@@ -75,17 +75,14 @@
   <!-- ========== MAIN CONTENT ========== -->
   <main id="content" role="main">
     <!-- Navbar -->
-    <nav class="js-nav-scroller navbar navbar-expand-lg navbar-sidebar navbar-vertical navbar-light bg-white border-end"
-      data-hs-nav-scroller-options='{
+    <nav class="js-nav-scroller navbar navbar-expand-lg navbar-sidebar navbar-vertical navbar-light bg-white border-end" data-hs-nav-scroller-options='{
             "type": "vertical",
             "target": ".navbar-nav .active",
             "offset": 80
            }'>
       <!-- Navbar Toggle -->
       <div class="d-grid flex-grow-1 px-2">
-        <button type="button" class="navbar-toggler btn btn-white" data-bs-toggle="collapse"
-          data-bs-target="#navbarVerticalNavMenu" aria-label="Toggle navigation" aria-expanded="false"
-          aria-controls="navbarVerticalNavMenu">
+        <button type="button" class="navbar-toggler btn btn-white" data-bs-toggle="collapse" data-bs-target="#navbarVerticalNavMenu" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navbarVerticalNavMenu">
           <span class="d-flex justify-content-between align-items-center">
             <span class="h3 mb-0">Nav menu</span>
 
@@ -134,11 +131,15 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link active" href="../admin/edit-core-values.html">Core values</a>
+              <a class="nav-link active" href="../admin/add-core-values.php">Core values</a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link " href="../admin/edit-core-values.html">Core competency</a>
+              <a class="nav-link " href="../admin/edit-knowledge.php">Edit knowledge</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link " href="../admin/edit-core-values.php">Core competency</a>
             </li>
 
             <li class="nav-item my-2 my-lg-5"></li>
@@ -147,29 +148,29 @@
               <span class="nav-subtitle">Feed industry</span>
             </li>
 
-            <li class="nav-item">
-              <a class="nav-link " href="../documentation/bs-icons.html">Poultry industry</a>
-            </li>
 
-            <li class="nav-item">
-              <a class="nav-link " href="../documentation/bs-icons.html">Swine industry</a>
-            </li>
 
-            <li class="nav-item">
-              <a class="nav-link " href="../documentation/bs-icons.html">Dairy & beef industry</a>
-            </li>
+            <?php
 
-            <li class="nav-item">
-              <a class="nav-link " href="../documentation/bs-icons.html">Pet food industry</a>
-            </li>
+            $conn = new mysqli("localhost", "root", "", "bio");
+            // Check connection
+            if ($conn->connect_error) {
+              die("Connection failed: " . $conn->connect_error);
+            }
 
-            <li class="nav-item">
-              <a class="nav-link " href="../documentation/bs-icons.html">Food supplement</a>
-            </li>
+            $sql = "SELECT * FROM article";
+            $result = $conn->query($sql);
 
-            <li class="nav-item">
-              <a class="nav-link " href="../documentation/bs-icons.html">Branding creation</a>
-            </li>
+            ?>
+
+            <?php while ($row = $result->fetch_assoc()) : ?>
+
+              <li class="nav-item">
+                <a class="nav-link " href="../admin/edit-core-values.php?id=<?php echo $row['article_id']; ?>"><?php echo $row['article_Header']; ?></a>
+              </li>
+
+            <?php endwhile ?>
+
 
             <li class="nav-item my-2 my-lg-5"></li>
 
@@ -178,9 +179,7 @@
             </li>
 
             <li class="nav-item ">
-              <a class="nav-link dropdown-toggle dropdown-toggle-collapse"
-                href="#snippetsSidebarNavPlantExtractCollapse" role="button" data-bs-toggle="collapse"
-                aria-expanded="false" aria-controls="snippetsSidebarNavPlantExtractCollapse">Plant extract</a>
+              <a class="nav-link dropdown-toggle dropdown-toggle-collapse" href="#snippetsSidebarNavPlantExtractCollapse" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="snippetsSidebarNavPlantExtractCollapse">Plant extract</a>
 
               <div id="snippetsSidebarNavPlantExtractCollapse" class="nav-collapse collapse ">
                 <a class="nav-link " href="features-general.html">AV3</a>
@@ -196,9 +195,7 @@
             </li>
 
             <li class="nav-item ">
-              <a class="nav-link dropdown-toggle dropdown-toggle-collapse" href="#snippetsSidebarNavNaturalCollapse"
-                role="button" data-bs-toggle="collapse" aria-expanded="false"
-                aria-controls="snippetsSidebarNavNaturalCollapse">Natural antioxidant</a>
+              <a class="nav-link dropdown-toggle dropdown-toggle-collapse" href="#snippetsSidebarNavNaturalCollapse" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="snippetsSidebarNavNaturalCollapse">Natural antioxidant</a>
 
               <div id="snippetsSidebarNavNaturalCollapse" class="nav-collapse collapse ">
                 <a class="nav-link " href="features-general.html">Arresto Liquithox</a>
@@ -211,9 +208,7 @@
             </li>
 
             <li class="nav-item ">
-              <a class="nav-link dropdown-toggle dropdown-toggle-collapse" href="#snippetsSidebarNavPigmentCollapse"
-                role="button" data-bs-toggle="collapse" aria-expanded="false"
-                aria-controls="snippetsSidebarNavPigmentCollapse">Pigment</a>
+              <a class="nav-link dropdown-toggle dropdown-toggle-collapse" href="#snippetsSidebarNavPigmentCollapse" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="snippetsSidebarNavPigmentCollapse">Pigment</a>
 
               <div id="snippetsSidebarNavPigmentCollapse" class="nav-collapse collapse ">
                 <a class="nav-link " href="features-general.html">BS Leader yellow 2%</a>
@@ -225,9 +220,7 @@
             </li>
 
             <li class="nav-item ">
-              <a class="nav-link dropdown-toggle dropdown-toggle-collapse" href="#snippetsSidebarNavImmuneCollapse"
-                role="button" data-bs-toggle="collapse" aria-expanded="false"
-                aria-controls="snippetsSidebarNavImmuneCollapse">Immune Stimulant</a>
+              <a class="nav-link dropdown-toggle dropdown-toggle-collapse" href="#snippetsSidebarNavImmuneCollapse" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="snippetsSidebarNavImmuneCollapse">Immune Stimulant</a>
 
               <div id="snippetsSidebarNavImmuneCollapse" class="nav-collapse collapse ">
                 <a class="nav-link " href="features-general.html">Biolex MB 40</a>
@@ -238,9 +231,7 @@
             </li>
 
             <li class="nav-item ">
-              <a class="nav-link dropdown-toggle dropdown-toggle-collapse" href="#snippetsSidebarNavAlgaeCollapse"
-                role="button" data-bs-toggle="collapse" aria-expanded="false"
-                aria-controls="snippetsSidebarNavAlgaeCollapse">Spirulina and Algae</a>
+              <a class="nav-link dropdown-toggle dropdown-toggle-collapse" href="#snippetsSidebarNavAlgaeCollapse" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="snippetsSidebarNavAlgaeCollapse">Spirulina and Algae</a>
 
               <div id="snippetsSidebarNavAlgaeCollapse" class="nav-collapse collapse ">
                 <a class="nav-link " href="features-navs.html">Biomega-Tech® HA</a>
@@ -251,9 +242,7 @@
             </li>
 
             <li class="nav-item ">
-              <a class="nav-link dropdown-toggle dropdown-toggle-collapse"
-                href="#snippetsSidebarNavPalatabilityCollapse" role="button" data-bs-toggle="collapse"
-                aria-expanded="false" aria-controls="snippetsSidebarNavPalatabilityCollapse">Palatability enhancer</a>
+              <a class="nav-link dropdown-toggle dropdown-toggle-collapse" href="#snippetsSidebarNavPalatabilityCollapse" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="snippetsSidebarNavPalatabilityCollapse">Palatability enhancer</a>
 
               <div id="snippetsSidebarNavPalatabilityCollapse" class="nav-collapse collapse ">
                 <a class="nav-link " href="features-step.html">Antenna</a>
@@ -263,9 +252,7 @@
             </li>
 
             <li class="nav-item ">
-              <a class="nav-link dropdown-toggle dropdown-toggle-collapse" href="#snippetsSidebarNavBinderCollapse"
-                role="button" data-bs-toggle="collapse" aria-expanded="false"
-                aria-controls="snippetsSidebarNavBinderCollapse">Mycotoxin Binder</a>
+              <a class="nav-link dropdown-toggle dropdown-toggle-collapse" href="#snippetsSidebarNavBinderCollapse" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="snippetsSidebarNavBinderCollapse">Mycotoxin Binder</a>
 
               <div id="snippetsSidebarNavBinderCollapse" class="nav-collapse collapse ">
                 <a class="nav-link " href="features-step.html">Detoxizyme</a>
@@ -274,9 +261,7 @@
             </li>
 
             <li class="nav-item ">
-              <a class="nav-link dropdown-toggle dropdown-toggle-collapse" href="#snippetsSidebarNavEmuCollapse"
-                role="button" data-bs-toggle="collapse" aria-expanded="false"
-                aria-controls="snippetsSidebarNavEmuCollapse">Emulsifier</a>
+              <a class="nav-link dropdown-toggle dropdown-toggle-collapse" href="#snippetsSidebarNavEmuCollapse" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="snippetsSidebarNavEmuCollapse">Emulsifier</a>
 
               <div id="snippetsSidebarNavEmuCollapse" class="nav-collapse collapse ">
                 <a class="nav-link " href="features-step.html">Liposorb P</a>
@@ -358,13 +343,22 @@
           <!-- Nav -->
           <ul class="nav justify-content-end " role="tablist">
             <li class="nav-item">
-              <button type="submit" class="btn btn-primary  btn-sm">
+              <a href="../admin/add-core-values.php" type="submit" class="btn btn-primary  btn-sm">
                 <i class=" bi-plus"></i>
-                Add</button>
+                Add</a>
 
-              <button type="submit" class="btn btn-primary  btn-sm">
+              <?php
+              $id = 0;
+              if (isset($_GET['id'])) {
+                $id = $_GET['id'];
+              }
+
+              ?>
+
+              <!-- <a href="../admin/atricle_del.php?id=<?php echo $id; ?>" type="submit" class="btn btn-primary  btn-sm">
                 <i class=" bi-trash"></i>
-                Delete</button>
+                Delete</a> -->
+
             </li>
 
           </ul>
@@ -381,60 +375,85 @@
               <div class="card card-shadow">
                 <div class="card-body p-sm-7 p-md-5">
 
-                  <form action="article_db.php" method="post" enctype="multipart/form-data">
+                  <form action="article_update.php" method="post" enctype="multipart/form-data">
+
+                    <?php
+
+                    $conn = new mysqli("localhost", "root", "", "bio");
+                    // Check connection
+                    if ($conn->connect_error) {
+                      die("Connection failed: " . $conn->connect_error);
+                    }
+                    $id = 17;
+
+                    if (isset($_GET['id'])) {
+                      $id = $_GET['id'];
+                    }
+
+                    $sql = "SELECT * FROM article WHERE article_id = $id ";
+                    $result = $conn->query($sql);
+
+                    $row = $result->fetch_assoc();
+
+                    ?>
+
+                    <input type="hidden" name="id" value="<?= $id ?>">
 
                     <div class="mb-3">
                       <label class="form-label">Header</label>
-                      <input type="text" class="form-control" name="article_Header" placeholder="">
+                      <input type="text" class="form-control" name="article_Header" value="<?= $row['article_Header'] ?>" placeholder="">
                     </div>
 
                     <div class="mb-3">
                       <label class="form-label">Content English line1</label>
-                      <textarea type="text" class="form-control" name="article_C_E_1" placeholder=""></textarea>
+                      <textarea type="text" class="form-control" name="article_C_E_1" placeholder=""><?= $row['article_C_E_1'] ?></textarea>
                     </div>
 
                     <div class="mb-3">
                       <label class="form-label">Content Thai line1</label>
-                      <textarea type="text" class="form-control" name="article_C_T_1" placeholder=""></textarea>
+                      <textarea type="text" class="form-control" name="article_C_T_1" placeholder=""><?= $row['article_C_T_1'] ?></textarea>
                     </div>
 
                     <div class="mb-3">
                       <label class="form-label">Image</label>
                       <input type="file" id="customFileEg1" name="article_Image_1" class="form-control">
+                      <input type="hidden" name="article_Image_1_old" value="<?= $row['article_Image_1'] ?>"><span><?= $row['article_Image_1'] ?></span>
                     </div>
 
                     <hr class="my-md-7">
 
                     <div class="mb-3">
                       <label class="form-label">Content English line2</label>
-                      <textarea type="text" class="form-control" name="article_C_E_2" placeholder=""></textarea>
+                      <textarea type="text" class="form-control" name="article_C_E_2" placeholder=""><?= $row['article_C_E_2'] ?></textarea>
                     </div>
 
                     <div class="mb-3">
                       <label class="form-label">Content Thai line2</label>
-                      <textarea type="text" class="form-control" name="article_C_T_2" placeholder=""></textarea>
+                      <textarea type="text" class="form-control" name="article_C_T_2" placeholder=""><?= $row['article_C_T_2'] ?></textarea>
                     </div>
 
                     <div class="mb-3">
                       <label class="form-label">Image</label>
                       <input type="file" id="customFileEg2" name="article_Image_2" class="form-control">
+                      <input type="hidden" name="article_Image_2_old" value="<?= $row['article_Image_2'] ?>"><span><?= $row['article_Image_2'] ?></span>
                     </div>
 
                     <hr class="my-md-7">
 
                     <div class="mb-3">
                       <label class="form-label">Content English line3</label>
-                      <textarea type="text" class="form-control" name="article_C_E_3" placeholder=""></textarea>
+                      <textarea type="text" class="form-control" name="article_C_E_3" placeholder=""><?= $row['article_C_E_3'] ?></textarea>
                     </div>
 
                     <div class="mb-3">
                       <label class="form-label">Content Thai line3</label>
-                      <textarea type="text" class="form-control" name="article_C_T_3" placeholder=""></textarea>
+                      <textarea type="text" class="form-control" name="article_C_T_3" placeholder=""><?= $row['article_C_T_3'] ?></textarea>
                     </div>
 
                     <div class="mb-3">
                       <label class="form-label">Image</label>
                       <input type="file" id="customFileEg3" name="article_Image_3" class="form-control">
+                      <input type="hidden" name="article_Image_3_old" value="<?= $row['article_Image_3'] ?>"><span><?= $row['article_Image_3'] ?></span>
                     </div>
 
                     <br>
@@ -494,7 +513,7 @@
 
   <!-- JS Plugins Init. -->
   <script>
-    (function () {
+    (function() {
       // INITIALIZATION OF HEADER
       // =======================================================
       new HSHeader('#header').init()
@@ -528,8 +547,6 @@
     })()
 
     //อัพโหลดรูป
-
-
   </script>
 </body>
 

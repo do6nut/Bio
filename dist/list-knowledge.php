@@ -283,12 +283,7 @@
           if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
           }
-          $id = 17;
-
-          if (isset($_GET['id'])) {
-            $id = $_GET['id'];
-          }
-
+      
           $sql = "SELECT * FROM knowledge";
           $result = $conn->query($sql);
 
