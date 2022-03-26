@@ -57,7 +57,7 @@
               <ul class="navbar-nav p-0">
                 <li class="nav-item">
                   <a class="btn btn-primary" href="../index.html">
-                    <i class="bi-eye me-1"></i> Preview Website
+                    <i class="bi-eye me-1"></i> Goto Website
                   </a>
                 </li>
               </ul>
@@ -98,232 +98,279 @@
       </div>
       <!-- End Navbar Toggle -->
 
-      <!-- Navbar Collapse -->
-      <div id="navbarVerticalNavMenu" class="collapse navbar-collapse">
-        <div class="navbar-brand-wrapper border-end" style="height: auto;">
-          <!-- Default Logo -->
-          <div class="d-flex align-items-center mb-3">
-            <a class="navbar-brand" href="../documentation/index.html">
-              <img class="navbar-brand-logo" src="../assets/svg/logos/image2vector.svg" alt="Logo">
-            </a>
-          </div>
-          <!-- End Default Logo -->
+        <!-- Navbar Collapse -->
+        <div id="navbarVerticalNavMenu" class="collapse navbar-collapse">
+            <div class="navbar-brand-wrapper border-end" style="height: auto;">
+                <!-- Default Logo -->
+                <div class="d-flex align-items-center mb-3">
+                    <a class="navbar-brand" href="../admin/index.php">
+                        <img class="navbar-brand-logo" src="../assets/svg/logos/image2vector.svg" alt="Logo">
+                    </a>
+                </div>
+                <!-- End Default Logo -->
+            </div>
 
-          <!-- Nav -->
-          <ul class="nav nav-segment nav-fill nav-justified">
-            <li class="nav-item">
-              <a class="nav-link active" href="../documentation/index.html">Docs</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../snippets/index.html">Snippets</a>
-            </li>
-          </ul>
-          <!-- End Nav -->
+            <div class="docs-navbar-sidebar-aside-body navbar-sidebar-aside-body">
+                <ul id="navbarSettings" class="navbar-nav nav nav-vertical nav-tabs nav-tabs-borderless nav-sm">
+                    <li class="nav-item">
+                        <span class="nav-subtitle">Dashboard</span>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="../admin/index.php">Homepage</a>
+                    </li>
+
+                    <li class="nav-item my-2 my-lg-5"></li>
+
+                    <li class="nav-item">
+                        <span class="nav-subtitle">About us</span>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link " href="../admin/edit-mission-vision.php">Mission & Vision</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link " href="../admin/add-core-values.php">Core values</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link " href="../admin/edit-knowledge.php">Edit knowledge</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link " href="../documentation/customization.html">Core competency</a>
+                    </li>
+
+                    <li class="nav-item my-2 my-lg-5"></li>
+
+                    <li class="nav-item">
+                        <span class="nav-subtitle">Feed industry</span>
+                    </li>
+
+                    <?php
+                    $conn = new mysqli("localhost", "root", "", "bio");
+                    // Check connection
+                    if ($conn->connect_error) {
+                        die("Connection failed: " . $conn->connect_error);
+                    }
+                    $sql = "SELECT * FROM article WHERE article_type = 'INDUSTRY' ";
+                    $result = $conn->query($sql);
+                    ?>
+                    <?php while ($row = $result->fetch_assoc()) : ?>
+                        <li class="nav-item">
+                            <a class="nav-link " href="../admin/edit-feed-industry.php?id=<?php echo $row['article_id']; ?>"><?php echo $row['article_Header']; ?></a>
+                        </li>
+                    <?php endwhile ?>
+
+                    <li class="nav-item my-2 my-lg-5"></li>
+                    <li class="nav-item">
+                        <span class="nav-subtitle">Product category</span>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link dropdown-toggle dropdown-toggle-collapse" href="#snippetsSidebarNavPlantExtractCollapse"
+                           role="button" data-bs-toggle="collapse" aria-expanded="false"
+                           aria-controls="snippetsSidebarNavPlantExtractCollapse">Plant extract</a>
+                        <?php
+                        $conn = new mysqli("localhost", "root", "", "bio");
+                        // Check connection
+                        if ($conn->connect_error) {
+                            die("Connection failed: " . $conn->connect_error);
+                        }
+                        $sql = "SELECT * FROM article WHERE article_type = 'PLANT' ";
+                        $result = $conn->query($sql);
+                        ?>
+                        <?php while ($row = $result->fetch_assoc()) : ?>
+                        <div id="snippetsSidebarNavPlantExtractCollapse" class="nav-collapse collapse ">
+                            <a class="nav-link " href="../admin/edit-plant-extract.php?id=<?php echo $row['article_id']; ?>"><?php echo $row['article_Header']; ?></a>
+                        </div>
+                    </li>
+                <?php endwhile ?>
+
+
+                    <li class="nav-item ">
+                        <a class="nav-link dropdown-toggle dropdown-toggle-collapse" href="#snippetsSidebarNavNaturalCollapse"
+                           role="button" data-bs-toggle="collapse" aria-expanded="false"
+                           aria-controls="snippetsSidebarNavNaturalCollapse">Natural antioxidant</a>
+                        <?php
+                        $conn = new mysqli("localhost", "root", "", "bio");
+                        // Check connection
+                        if ($conn->connect_error) {
+                            die("Connection failed: " . $conn->connect_error);
+                        }
+                        $sql = "SELECT * FROM article WHERE article_type = 'NATURAL' ";
+                        $result = $conn->query($sql);
+                        ?>
+                        <?php while ($row = $result->fetch_assoc()) : ?>
+                        <div id="snippetsSidebarNavNaturalCollapse" class="nav-collapse collapse ">
+                            <a class="nav-link " href="../admin/edit-natural.php?id=<?php echo $row['article_id']; ?>"><?php echo $row['article_Header']; ?></a>
+                        </div>
+                    </li>
+                <?php endwhile ?>
+
+                    <li class="nav-item ">
+                        <a class="nav-link dropdown-toggle dropdown-toggle-collapse"
+                           href="#snippetsSidebarNavPigmentCollapse"
+                           role="button" data-bs-toggle="collapse" aria-expanded="false"
+                           aria-controls="snippetsSidebarNavPigmentCollapse">Pigment</a>
+
+                        <?php
+                        $conn = new mysqli("localhost", "root", "", "bio");
+                        // Check connection
+                        if ($conn->connect_error) {
+                            die("Connection failed: " . $conn->connect_error);
+                        }
+                        $sql = "SELECT * FROM article WHERE article_type = 'PIGMENT' ";
+                        $result = $conn->query($sql);
+                        ?>
+                        <?php while ($row = $result->fetch_assoc()) : ?>
+                        <div id="snippetsSidebarNavPigmentCollapse" class="nav-collapse collapse ">
+                            <a class="nav-link " href="../admin/edit-pigment.php?id=<?php echo $row['article_id']; ?>"><?php echo $row['article_Header']; ?></a>
+                        </div>
+                    </li>
+                <?php endwhile ?>
+
+                    <li class="nav-item ">
+                        <a class="nav-link dropdown-toggle dropdown-toggle-collapse"
+                           href="#snippetsSidebarNavImmuneCollapse" role="button" data-bs-toggle="collapse"
+                           aria-expanded="false" aria-controls="snippetsSidebarNavImmuneCollapse">Immune Stimulant</a>
+
+                        <?php
+                        $conn = new mysqli("localhost", "root", "", "bio");
+                        // Check connection
+                        if ($conn->connect_error) {
+                            die("Connection failed: " . $conn->connect_error);
+                        }
+                        $sql = "SELECT * FROM article WHERE article_type = 'IMMUNE' ";
+                        $result = $conn->query($sql);
+                        ?>
+                        <?php while ($row = $result->fetch_assoc()) : ?>
+                        <div id="snippetsSidebarNavImmuneCollapse" class="nav-collapse collapse ">
+                            <a class="nav-link " href="../admin/edit-immune.php?id=<?php echo $row['article_id']; ?>"><?php echo $row['article_Header']; ?></a>
+                        </div>
+                    </li>
+                <?php endwhile ?>
+
+                    <li class="nav-item ">
+                        <a class="nav-link dropdown-toggle dropdown-toggle-collapse"
+                           href="#snippetsSidebarNavAlgaeCollapse" role="button" data-bs-toggle="collapse"
+                           aria-expanded="false" aria-controls="snippetsSidebarNavAlgaeCollapse">Spirulina and Algae</a>
+
+                        <?php
+                        $conn = new mysqli("localhost", "root", "", "bio");
+                        // Check connection
+                        if ($conn->connect_error) {
+                            die("Connection failed: " . $conn->connect_error);
+                        }
+                        $sql = "SELECT * FROM article WHERE article_type = 'ALGAE' ";
+                        $result = $conn->query($sql);
+                        ?>
+                        <?php while ($row = $result->fetch_assoc()) : ?>
+                        <div id="snippetsSidebarNavAlgaeCollapse" class="nav-collapse collapse ">
+                            <a class="nav-link " href="../admin/edit-algae.php?id=<?php echo $row['article_id']; ?>"><?php echo $row['article_Header']; ?></a>
+                        </div>
+                    </li>
+                <?php endwhile ?>
+
+                    <li class="nav-item ">
+                        <a class="nav-link dropdown-toggle dropdown-toggle-collapse"
+                           href="#snippetsSidebarNavPalatabilityCollapse" role="button" data-bs-toggle="collapse"
+                           aria-expanded="false" aria-controls="snippetsSidebarNavPalatabilityCollapse">Palatability enhancer</a>
+
+                        <?php
+                        $conn = new mysqli("localhost", "root", "", "bio");
+                        // Check connection
+                        if ($conn->connect_error) {
+                            die("Connection failed: " . $conn->connect_error);
+                        }
+                        $sql = "SELECT * FROM article WHERE article_type = 'PALATABILITY' ";
+                        $result = $conn->query($sql);
+                        ?>
+                        <?php while ($row = $result->fetch_assoc()) : ?>
+                        <div id="snippetsSidebarNavPalatabilityCollapse" class="nav-collapse collapse ">
+                            <a class="nav-link " href="../admin/edit-palatability.php?id=<?php echo $row['article_id']; ?>"><?php echo $row['article_Header']; ?></a>
+                        </div>
+                    </li>
+                <?php endwhile ?>
+
+                    <li class="nav-item ">
+                        <a class="nav-link dropdown-toggle dropdown-toggle-collapse"
+                           href="#snippetsSidebarNavBinderCollapse" role="button" data-bs-toggle="collapse"
+                           aria-expanded="false" aria-controls="snippetsSidebarNavBinderCollapse">Mycotoxin Binder</a>
+
+                        <?php
+                        $conn = new mysqli("localhost", "root", "", "bio");
+                        // Check connection
+                        if ($conn->connect_error) {
+                            die("Connection failed: " . $conn->connect_error);
+                        }
+                        $sql = "SELECT * FROM article WHERE article_type = 'BINDER' ";
+                        $result = $conn->query($sql);
+                        ?>
+                        <?php while ($row = $result->fetch_assoc()) : ?>
+                        <div id="snippetsSidebarNavBinderCollapse" class="nav-collapse collapse ">
+                            <a class="nav-link " href="../admin/edit-binder.php?id=<?php echo $row['article_id']; ?>"><?php echo $row['article_Header']; ?></a>
+                        </div>
+                    </li>
+                <?php endwhile ?>
+
+                    <li class="nav-item ">
+                        <a class="nav-link dropdown-toggle dropdown-toggle-collapse"
+                           href="#snippetsSidebarNavEmuCollapse" role="button" data-bs-toggle="collapse"
+                           aria-expanded="false" aria-controls="snippetsSidebarNavEmuCollapse">Emulsifier</a>
+
+                        <?php
+                        $conn = new mysqli("localhost", "root", "", "bio");
+                        // Check connection
+                        if ($conn->connect_error) {
+                            die("Connection failed: " . $conn->connect_error);
+                        }
+                        $sql = "SELECT * FROM article WHERE article_type = 'EMULSIFIER' ";
+                        $result = $conn->query($sql);
+                        ?>
+                        <?php while ($row = $result->fetch_assoc()) : ?>
+                        <div id="snippetsSidebarNavEmuCollapse" class="nav-collapse collapse ">
+                            <a class="nav-link " href="../admin/edit-emulsifier.php?id=<?php echo $row['article_id']; ?>"><?php echo $row['article_Header']; ?></a>
+                        </div>
+                    </li>
+                <?php endwhile ?>
+
+
+                    <li class="nav-item my-2 my-lg-5"></li>
+
+                    <li class="nav-item">
+                        <span class="nav-subtitle">Sustainable development</span>
+                    </li>
+
+                    <?php
+                    $conn = new mysqli("localhost", "root", "", "bio");
+                    // Check connection
+                    if ($conn->connect_error) {
+                        die("Connection failed: " . $conn->connect_error);
+                    }
+                    $sql = "SELECT * FROM article WHERE article_type = 'SUSTAINABLE' ";
+                    $result = $conn->query($sql);
+                    ?>
+                    <?php while ($row = $result->fetch_assoc()) : ?>
+                        <li class="nav-item">
+                            <a class="nav-link " href="../admin/edit-sustainable.php?id=<?php echo $row['article_id']; ?>"><?php echo $row['article_Header']; ?></a>
+                        </li>
+                    <?php endwhile ?>
+
+                    <li class="nav-item my-2 my-lg-5"></li>
+
+                    <li class="nav-item">
+                        <span class="nav-subtitle">Other</span>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link " href="../admin/edit-knowledge.php">Knowledge</a>
+                    </li>
+
+                </ul>
+            </div>
         </div>
-
-        <div class="docs-navbar-sidebar-aside-body navbar-sidebar-aside-body">
-          <ul id="navbarSettings" class="navbar-nav nav nav-vertical nav-tabs nav-tabs-borderless nav-sm">
-            <li class="nav-item">
-              <span class="nav-subtitle">Dashboard</span>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link active" href="../admin/index.html">Homepage</a>
-            </li>
-
-            <li class="nav-item my-2 my-lg-5"></li>
-
-            <li class="nav-item">
-              <span class="nav-subtitle">About us</span>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link " href="../documentation/getting-started.html">Mission & Vision</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link " href="../admin/add-core-values.php">Core values</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link " href="../admin/edit-knowledge.php">Edit knowledge</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link " href="../documentation/customization.html">Core competency</a>
-            </li>
-
-            <li class="nav-item my-2 my-lg-5"></li>
-
-            <li class="nav-item">
-              <span class="nav-subtitle">Feed industry</span>
-            </li>
-
-           
-            <?php
-
-            $conn = new mysqli("localhost", "root", "", "bio");
-            // Check connection
-            if ($conn->connect_error) {
-              die("Connection failed: " . $conn->connect_error);
-            }
-
-            $sql = "SELECT * FROM article";
-            $result = $conn->query($sql);
-
-            ?>
-
-            <?php while ($row = $result->fetch_assoc()) : ?>
-
-              <li class="nav-item">
-                <a class="nav-link " href="../admin/edit-core-values.php?id=<?php echo $row['article_id']; ?>"><?php echo $row['article_Header']; ?></a>
-              </li>
-
-            <?php endwhile ?>
-
-
-            <li class="nav-item my-2 my-lg-5"></li>
-
-            <li class="nav-item">
-              <span class="nav-subtitle">Product category</span>
-            </li>
-
-            <li class="nav-item ">
-              <a class="nav-link dropdown-toggle dropdown-toggle-collapse" href="#snippetsSidebarNavPlantExtractCollapse" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="snippetsSidebarNavPlantExtractCollapse">Plant extract</a>
-
-              <div id="snippetsSidebarNavPlantExtractCollapse" class="nav-collapse collapse ">
-                <a class="nav-link " href="features-general.html">AV3</a>
-                <a class="nav-link " href="features-stats.html">Emanox</a>
-                <a class="nav-link " href="features-step.html">Kerlait</a>
-                <a class="nav-link " href="features-navs.html">Prodol</a>
-                <a class="nav-link " href="features-navs.html">Silagreen / Flavotan</a>
-                <a class="nav-link " href="features-navs.html">Fan+F4</a>
-                <a class="nav-link " href="features-navs.html">Red protect</a>
-                <a class="nav-link " href="features-navs.html">KIG</a>
-                <a class="nav-link " href="features-navs.html">KOD</a>
-              </div>
-            </li>
-
-            <li class="nav-item ">
-              <a class="nav-link dropdown-toggle dropdown-toggle-collapse" href="#snippetsSidebarNavNaturalCollapse" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="snippetsSidebarNavNaturalCollapse">Natural antioxidant</a>
-
-              <div id="snippetsSidebarNavNaturalCollapse" class="nav-collapse collapse ">
-                <a class="nav-link " href="features-general.html">Arresto Liquithox</a>
-                <a class="nav-link " href="features-stats.html">Arresto Rethox</a>
-                <a class="nav-link " href="features-step.html">Arresto Acidox</a>
-                <a class="nav-link " href="features-navs.html">Arresto 1.5 Conc.</a>
-                <a class="nav-link " href="features-navs.html">Oxabiol Premium</a>
-                <a class="nav-link " href="features-navs.html">Oxabiol blends</a>
-              </div>
-            </li>
-
-            <li class="nav-item ">
-              <a class="nav-link dropdown-toggle dropdown-toggle-collapse" href="#snippetsSidebarNavPigmentCollapse" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="snippetsSidebarNavPigmentCollapse">Pigment</a>
-
-              <div id="snippetsSidebarNavPigmentCollapse" class="nav-collapse collapse ">
-                <a class="nav-link " href="features-general.html">BS Leader yellow 2%</a>
-                <a class="nav-link " href="features-stats.html">BS Leader red 1%</a>
-                <a class="nav-link " href="features-step.html">Leader Golden 50 EXT</a>
-                <a class="nav-link " href="features-navs.html">Leader Pink 100 EXT</a>
-                <a class="nav-link " href="features-navs.html">Leader Red 100 EXT</a>
-              </div>
-            </li>
-
-            <li class="nav-item ">
-              <a class="nav-link dropdown-toggle dropdown-toggle-collapse" href="#snippetsSidebarNavImmuneCollapse" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="snippetsSidebarNavImmuneCollapse">Immune Stimulant</a>
-
-              <div id="snippetsSidebarNavImmuneCollapse" class="nav-collapse collapse ">
-                <a class="nav-link " href="features-general.html">Biolex MB 40</a>
-                <a class="nav-link " href="features-stats.html">Beta S</a>
-                <a class="nav-link " href="features-step.html">Cefi Pro</a>
-                <a class="nav-link " href="features-navs.html">Leiber YeaFi</a>
-              </div>
-            </li>
-
-            <li class="nav-item ">
-              <a class="nav-link dropdown-toggle dropdown-toggle-collapse" href="#snippetsSidebarNavAlgaeCollapse" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="snippetsSidebarNavAlgaeCollapse">Spirulina and Algae</a>
-
-              <div id="snippetsSidebarNavAlgaeCollapse" class="nav-collapse collapse ">
-                <a class="nav-link " href="features-navs.html">Biomega-Tech® HA</a>
-                <a class="nav-link " href="features-navs.html">Spirulina</a>
-                <a class="nav-link " href="features-step.html">Antenna</a>
-                <a class="nav-link " href="features-navs.html">Nutaste ® Profile</a>
-              </div>
-            </li>
-
-            <li class="nav-item ">
-              <a class="nav-link dropdown-toggle dropdown-toggle-collapse" href="#snippetsSidebarNavPalatabilityCollapse" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="snippetsSidebarNavPalatabilityCollapse">Palatability enhancer</a>
-
-              <div id="snippetsSidebarNavPalatabilityCollapse" class="nav-collapse collapse ">
-                <a class="nav-link " href="features-step.html">Antenna</a>
-                <a class="nav-link " href="features-navs.html">Nutaste ® Profile</a>
-                <a class="nav-link " href="features-navs.html">Nutaste ® Function</a>
-              </div>
-            </li>
-
-            <li class="nav-item ">
-              <a class="nav-link dropdown-toggle dropdown-toggle-collapse" href="#snippetsSidebarNavBinderCollapse" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="snippetsSidebarNavBinderCollapse">Mycotoxin Binder</a>
-
-              <div id="snippetsSidebarNavBinderCollapse" class="nav-collapse collapse ">
-                <a class="nav-link " href="features-step.html">Detoxizyme</a>
-                <a class="nav-link " href="features-navs.html">Detoxizyme Conc.</a>
-              </div>
-            </li>
-
-            <li class="nav-item ">
-              <a class="nav-link dropdown-toggle dropdown-toggle-collapse" href="#snippetsSidebarNavEmuCollapse" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="snippetsSidebarNavEmuCollapse">Emulsifier</a>
-
-              <div id="snippetsSidebarNavEmuCollapse" class="nav-collapse collapse ">
-                <a class="nav-link " href="features-step.html">Liposorb P</a>
-                <a class="nav-link " href="features-navs.html">Liposorb DS</a>
-              </div>
-            </li>
-
-            <li class="nav-item my-2 my-lg-5"></li>
-
-            <li class="nav-item">
-              <span class="nav-subtitle">Sustainable development</span>
-            </li>
-
-
-            <li class="nav-item">
-              <a class="nav-link " href="../documentation/accordion.html">Technical support</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link " href="../documentation/alerts.html">Business development</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link " href="../documentation/avatars.html">Product development</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link " href="../documentation/badge.html">Research development and innovation center</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link " href="../documentation/breadcrumb.html">Quality control and assurance</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link " href="../documentation/buttons.html">Product registration</a>
-            </li>
-
-            <li class="nav-item my-2 my-lg-5"></li>
-
-            <li class="nav-item">
-              <span class="nav-subtitle">Other</span>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link active" href="../documentation/cards.html">Knowledge</a>
-            </li>
-
-          </ul>
-        </div>
-      </div>
-      <!-- End Navbar Collapse -->
+        <!-- End Navbar Collapse -->
     </nav>
 
     <!-- End Navbar -->
@@ -419,7 +466,12 @@
                         <tr>
                           <th scope="row"><?php echo $row['knowledge_id']; ?></th>
                           <th scope="row"><?php echo $row['knowledge_Img']; ?></th>
-                          <th style="width: 1rem;"><a href="knowledge_del.php?id=<?php echo $row['knowledge_id']; ?>" type="button" class="btn btn-soft-danger btn-sm "><i class="bi bi-x-lg"></i></a></th>
+                          <th style="width: 1rem;">
+                              <a
+                                 type="button" class="btn btn-soft-danger btn-sm " OnClick="chkConfirm('"<?php echo $row['knowledge_id']; ?>"', '"<?php echo $row['knowledge_Img']; ?>"')">
+                                  <i class="bi bi-x-lg"></i>
+                              </a>
+                          </th>
                         </tr>
                       <?php endwhile ?>
 
@@ -508,7 +560,22 @@
       // INITIALIZATION OF GO TO
       // =======================================================
       new HSGoTo('.js-go-to')
+
+
     })()
+    function chkConfirm(i, j)
+    {
+        if(confirm('Do you want to visit : https://www.thaicreate.com')==true)
+        {
+            alert('Going to https://www.thaicreate.com');
+        }
+        else
+        {
+            window.location.href="knowledge_del.php?id="+i;
+           /* href="knowledge_del.php?id="+i;*/
+        }
+    }
+
   </script>
 </body>
 

@@ -6,14 +6,14 @@ mysqli_query($conn, "SET NAMES 'utf8' ");
 //สร้างตัวแปร
 $article_Header = $_POST['article_Header'];
 
-$article_C_E_1 = $_POST['article_C_E_1'];
-$article_C_T_1 = $_POST['article_C_T_1'];
+$article_ConEn1 = $_POST['article_ConEn1'];
+$article_ConTh1 = $_POST['article_ConTh1'];
 
-$article_C_E_2 = $_POST['article_C_E_2'];
-$article_C_T_2 = $_POST['article_C_T_2'];
+$article_ConEn2 = $_POST['article_ConEn2'];
+$article_ConTh2 = $_POST['article_ConTh2'];
 
-$article_C_E_3 = $_POST['article_C_E_3'];
-$article_C_T_3 = $_POST['article_C_T_3'];
+$article_ConEn3 = $_POST['article_ConEn3'];
+$article_ConTh3 = $_POST['article_ConTh3'];
 
 
 //อัพโหลดไฟล์
@@ -35,16 +35,16 @@ if (isset($_FILES["article_Image_3"])) {
 $sql = " INSERT INTO article
 	(
         article_Header,
-        article_C_E_1, article_C_T_1, article_Image_1,
-        article_C_E_2, article_C_T_2, article_Image_2,
-        article_C_E_3, article_C_T_3, article_Image_3
+        article_ConEn1, article_ConTh1, article_Image_1,
+        article_ConEn2, article_ConTh2, article_Image_2,
+        article_ConEn3, article_ConTh3, article_Image_3
     )
 	VALUES
 	(
      '$article_Header',
-     '$article_C_E_1', '$article_C_T_1', '$article_Image_1',
-     '$article_C_E_2', '$article_C_T_2', '$article_Image_2',
-     '$article_C_E_3', '$article_C_T_3', '$article_Image_3'
+     '$article_ConEn1', '$article_ConTh1', '$article_Image_1',
+     '$article_ConEn2', '$article_ConTh2', '$article_Image_2',
+     '$article_ConEn3', '$article_ConTh3', '$article_Image_3'
      )";
 
 $result = mysqli_query($conn, $sql);

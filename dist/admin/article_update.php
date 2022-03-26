@@ -8,14 +8,14 @@ $id = $_POST['id'];
 //สร้างตัวแปร
 $article_Header = $_POST['article_Header'];
 
-$article_C_E_1 = $_POST['article_C_E_1'];
-$article_C_T_1 = $_POST['article_C_T_1'];
+$article_ConEn1 = $_POST['article_ConEn1'];
+$article_ConTh1 = $_POST['article_ConTh1'];
 
-$article_C_E_2 = $_POST['article_C_E_2'];
-$article_C_T_2 = $_POST['article_C_T_2'];
+$article_ConEn2 = $_POST['article_ConEn2'];
+$article_ConTh2 = $_POST['article_ConTh2'];
 
-$article_C_E_3 = $_POST['article_C_E_3'];
-$article_C_T_3 = $_POST['article_C_T_3'];
+$article_ConEn3 = $_POST['article_ConEn3'];
+$article_ConTh3 = $_POST['article_ConTh3'];
 
 //อัพโหลดไฟล์
 if ($_FILES["article_Image_1"]['name'] <> "") {
@@ -43,14 +43,14 @@ if ($_FILES["article_Image_3"]['name'] <> "") {
 //เพิ่มข้อมูล
 $sql = "UPDATE article SET 
         article_Header = '$article_Header',
-        article_C_E_1 = '$article_C_E_1',
-        article_C_T_1 = '$article_C_T_1',
+        article_ConEn1 = '$article_ConEn1',
+        article_ConTh1 = '$article_ConTh1',
         article_Image_1 = '$article_Image_1',
-        article_C_E_2 = '$article_C_E_2',
-        article_C_T_2 = '$article_C_T_2',
+        article_ConEn2 = '$article_ConEn2',
+        article_ConTh2 = '$article_ConTh2',
         article_Image_2 = '$article_Image_2',
-        article_C_E_3 = '$article_C_E_3',
-        article_C_T_3 = '$article_C_T_3',
+        article_ConEn3 = '$article_ConEn3',
+        article_ConTh3 = '$article_ConTh3',
         article_Image_3 = '$article_Image_3'
         WHERE article_id = '$id'";
 

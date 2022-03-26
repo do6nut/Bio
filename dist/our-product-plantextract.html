@@ -35,11 +35,6 @@
       <a class="navbar-brand" href="./index.html" aria-label="BioShine">
         <img class="navbar-brand-logo"
              src="./assets/svg/logos/image2vector.svg"
-             .navbar-brand-logo {
-             width: 100%;
-             min-width: 4rem;
-             max-width: 4rem;
-             }
              alt="Image Description">
       </a>
       <!-- End Default Logo -->
@@ -97,11 +92,11 @@
                   <div class="row">
                     <div class="col-sm-5 col-lg-3">
                       <span class="dropdown-header">Feed industry</span>
-                      <a class="dropdown-item " href="./article-Poultry.php?id=17">Poultry industry</a>
-                      <a class="dropdown-item " href="./article-Poultry.php?id=18">Swine industry</a>
-                      <a class="dropdown-item " href="./article-Poultry.php?id=19">Dairy and beef industry</a>
-                      <a class="dropdown-item " href="./article-Poultry.php?id=20">Aquaculture industry</a>
-                      <a class="dropdown-item " href="./article-Poultry.php?id=21">Pet food industry</a>
+                      <a class="dropdown-item " href="article-Industry.php?id=17">Poultry industry</a>
+                      <a class="dropdown-item " href="article-Industry.php?id=18">Swine industry</a>
+                      <a class="dropdown-item " href="article-Industry.php?id=19">Dairy and beef industry</a>
+                      <a class="dropdown-item " href="article-Industry.php?id=20">Aquaculture industry</a>
+                      <a class="dropdown-item " href="article-Industry.php?id=21">Pet food industry</a>
                     </div>
 
                     <div class="col-sm-6 col-lg-3 mb-3 mb-lg-0">
@@ -248,29 +243,6 @@
       <!-- End Collapse -->
     </nav>
   </div>
-  <!--  <div class="btn-group hs-has-mega-menu nav-item ">-->
-  <!--    <a class="link link-light link-light-75"-->
-  <!--       href="javascript:;" id="selectLanguage" data-bs-toggle="dropdown" aria-expanded="false">-->
-  <!--                  <span class="d-flex align-items-center">-->
-  <!--                    <img class="avatar avatar-xss avatar-circle me-2"-->
-  <!--                         src="./assets/vendor/flag-icon-css/flags/1x1/us.svg"-->
-  <!--                         alt="Image description" width="16"/>-->
-  <!--                    <span>English</span>-->
-  <!--                  </span>-->
-  <!--    </a>-->
-
-  <!--    <div class="dropdown-menu">-->
-  <!--      <a class="dropdown-item d-flex align-items-center active" href="#">-->
-  <!--        <img class="avatar avatar-xss avatar-circle me-2" src="./assets/vendor/flag-icon-css/flags/1x1/us.svg" alt="Image description" width="16"/>-->
-  <!--        <span>English</span>-->
-  <!--      </a>-->
-  <!--      <a class="dropdown-item d-flex align-items-center" href="#">-->
-  <!--        <img class="avatar avatar-xss avatar-circle me-2" src="./assets/vendor/flag-icon-css/flags/1x1/th.svg" alt="Image description"-->
-  <!--             width="16"/>-->
-  <!--        <span>Thailand</span>-->
-  <!--      </a>-->
-  <!--    </div>-->
-  <!--  </div>-->
 </header>
 
 <!-- ========== END HEADER ========== -->
@@ -291,12 +263,52 @@
     </div>
     <!-- End Hero -->
 
+
+    <div class="container content-space-b-2 content-space-b-lg-3 overflow-hidden">
+      <div class="row row-cols-1 row-cols-sm-2 gx-7">
+        <div class="col mb-7 mb-md-10">
+
+          <?php
+
+          $conn = new mysqli("localhost", "root", "", "bio");
+          // Check connection
+          if ($conn->connect_error) {
+          die("Connection failed: " . $conn->connect_error);
+          }
+
+          $sql = "SELECT * FROM knowledge";
+          $result = $conn->query($sql);
+
+
+          ?>
+
+
+
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <!-- Card Grid -->
     <div class="container content-space-b-2 content-space-b-lg-3 overflow-hidden">
       <div class="row row-cols-1 row-cols-sm-2 gx-7">
         <div class="col mb-7 mb-md-10">
           <!-- Card -->
-          <a class="card card-ghost h-100" href="./blog-sus-techsupport.html">
+          <a class="card card-ghost h-100" href="article-Plant.php?id=25">
             <div class="row">
               <div class="col-lg-5 mb-3 mb-lg-0">
                 <img class="card-img" src="./assets/img/BioShine/imageHere.jpg" alt="Image Description">
@@ -318,7 +330,7 @@
 
         <div class="col mb-7 mb-md-10">
           <!-- Card -->
-          <a class="card card-ghost h-100" href="./blog-sus-techsupport.html">
+          <a class="card card-ghost h-100" href="article-Plant.php?id=26">
             <div class="row">
               <div class="col-lg-5 mb-3 mb-lg-0">
                 <img class="card-img" src="./assets/img/BioShine/imageHere.jpg" alt="Image Description">
@@ -340,7 +352,7 @@
 
         <div class="col mb-7 mb-md-10">
           <!-- Card -->
-          <a class="card card-ghost h-100" href="./blog-sus-techsupport.html">
+          <a class="card card-ghost h-100" href="article-Plant.php?id=27">
             <div class="row">
               <div class="col-lg-5 mb-3 mb-lg-0">
                 <img class="card-img" src="./assets/img/BioShine/imageHere.jpg" alt="Image Description">
@@ -362,7 +374,7 @@
 
         <div class="col mb-7 mb-md-10">
           <!-- Card -->
-          <a class="card card-ghost h-100" href="./blog-sus-techsupport.html">
+          <a class="card card-ghost h-100" href="article-Plant.php?id=28">
             <div class="row">
               <div class="col-lg-5 mb-3 mb-lg-0">
                 <img class="card-img" src="./assets/img/BioShine/imageHere.jpg" alt="Image Description">
@@ -384,7 +396,7 @@
 
         <div class="col mb-7 mb-md-10">
           <!-- Card -->
-          <a class="card card-ghost h-100" href="./blog-sus-techsupport.html">
+          <a class="card card-ghost h-100" href="article-Plant.php?id=29">
             <div class="row">
               <div class="col-lg-5 mb-3 mb-lg-0">
                 <img class="card-img" src="./assets/img/BioShine/imageHere.jpg" alt="Image Description">
@@ -406,7 +418,7 @@
 
         <div class="col mb-7 mb-md-10">
           <!-- Card -->
-          <a class="card card-ghost h-100" href="./blog-sus-techsupport.html">
+          <a class="card card-ghost h-100" href="article-Plant.php?id=30">
             <div class="row">
               <div class="col-lg-5 mb-3 mb-lg-0">
                 <img class="card-img" src="./assets/img/BioShine/imageHere.jpg" alt="Image Description">

@@ -92,11 +92,11 @@
                     <div class="row">
                       <div class="col-sm-5 col-lg-3">
                         <span class="dropdown-header">Feed industry</span>
-                        <a class="dropdown-item " href="./article-Poultry.php?id=17">Poultry industry</a>
-                        <a class="dropdown-item " href="./article-Poultry.php?id=18">Swine industry</a>
-                        <a class="dropdown-item " href="./article-Poultry.php?id=19">Dairy and beef industry</a>
-                        <a class="dropdown-item " href="./article-Poultry.php?id=20">Aquaculture industry</a>
-                        <a class="dropdown-item " href="./article-Poultry.php?id=21">Pet food industry</a>
+                        <a class="dropdown-item " href="dist/article-Industry.php?id=17">Poultry industry</a>
+                        <a class="dropdown-item " href="dist/article-Industry.php?id=18">Swine industry</a>
+                        <a class="dropdown-item " href="dist/article-Industry.php?id=19">Dairy and beef industry</a>
+                        <a class="dropdown-item " href="dist/article-Industry.php?id=20">Aquaculture industry</a>
+                        <a class="dropdown-item " href="dist/article-Industry.php?id=21">Pet food industry</a>
                       </div>
 
                       <div class="col-sm-6 col-lg-3 mb-3 mb-lg-0">
@@ -298,7 +298,8 @@
               <div class="card-body">
                 <a class="card card-ghost card-transition-zoom h-100">
                   <div class="card-transition-zoom-item">
-                    <img class="card-img" src="./assets/img/uploads/<?= $row['knowledge_Img'] ?>" alt="Image Description">
+                    <img class="card-img" src="./assets/img/uploads/<?= $row['knowledge_Img'] ?>" alt="Image Description"
+                    style="height: 250px">
                   </div>
                 </a>
               </div>
@@ -308,7 +309,8 @@
                 <div class="d-sm-flex align-items-sm-center">
                   <div class=" row row-cols-2 row-cols-sm-2">
                     <a href="./assets/img/uploads/<?= $row['knowledge_Img'] ?>" target="_blank">
-                      <button type="button" class="btn btn-primary rounded-pill btn-lg" style="width: 100px;">
+                      <button type="button" class="btn btn-primary rounded-pill btn-lg"
+                              style="width: 100px;" >
                         Preview
                       </button>
                     </a>

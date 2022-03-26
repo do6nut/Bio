@@ -57,7 +57,7 @@
               <ul class="navbar-nav p-0">
                 <li class="nav-item">
                   <a class="btn btn-primary" href="../index.php">
-                    <i class="bi-eye me-1"></i> Preview Website
+                    <i class="bi-eye me-1"></i> Goto Website
                   </a>
                 </li>
               </ul>
@@ -127,7 +127,7 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link " href="../admin/getting-started.html">Mission & Vision</a>
+              <a class="nav-link " href="../admin/edit-mission-vision.php">Mission & Vision</a>
             </li>
 
             <li class="nav-item">
@@ -142,132 +142,208 @@
               <a class="nav-link " href="../documentation/customization.html">Core competency</a>
             </li>
 
+            <li class="nav-item">
+               <a class="nav-link " href="../admin/list-social-enterprise.php">Social Enterprise</a>
+             </li>
+
             <li class="nav-item my-2 my-lg-5"></li>
 
             <li class="nav-item">
               <span class="nav-subtitle">Feed industry</span>
             </li>
 
-
             <?php
-
-            $conn = new mysqli("localhost", "root", "", "bio");
-            // Check connection
-            if ($conn->connect_error) {
-              die("Connection failed: " . $conn->connect_error);
-            }
-
-            $sql = "SELECT * FROM article";
-            $result = $conn->query($sql);
-
+                $conn = new mysqli("localhost", "root", "", "bio");
+                    // Check connection
+                    if ($conn->connect_error) {
+                      die("Connection failed: " . $conn->connect_error);
+                    }
+                    $sql = "SELECT * FROM article WHERE article_type = 'INDUSTRY' ";
+                    $result = $conn->query($sql);
             ?>
-
             <?php while ($row = $result->fetch_assoc()) : ?>
-
               <li class="nav-item">
-                <a class="nav-link " href="../admin/edit-core-values.php?id=<?php echo $row['article_id']; ?>"><?php echo $row['article_Header']; ?></a>
+                <a class="nav-link " href="../admin/edit-feed-industry.php?id=<?php echo $row['article_id']; ?>"><?php echo $row['article_Header']; ?></a>
               </li>
-
             <?php endwhile ?>
 
-
-
             <li class="nav-item my-2 my-lg-5"></li>
-
             <li class="nav-item">
               <span class="nav-subtitle">Product category</span>
             </li>
 
-            <li class="nav-item ">
-              <a class="nav-link dropdown-toggle dropdown-toggle-collapse" href="#snippetsSidebarNavPlantExtractCollapse" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="snippetsSidebarNavPlantExtractCollapse">Plant extract</a>
-
-              <div id="snippetsSidebarNavPlantExtractCollapse" class="nav-collapse collapse ">
-                <a class="nav-link " href="features-general.html">AV3</a>
-                <a class="nav-link " href="features-stats.html">Emanox</a>
-                <a class="nav-link " href="features-step.html">Kerlait</a>
-                <a class="nav-link " href="features-navs.html">Prodol</a>
-                <a class="nav-link " href="features-navs.html">Silagreen / Flavotan</a>
-                <a class="nav-link " href="features-navs.html">Fan+F4</a>
-                <a class="nav-link " href="features-navs.html">Red protect</a>
-                <a class="nav-link " href="features-navs.html">KIG</a>
-                <a class="nav-link " href="features-navs.html">KOD</a>
-              </div>
-            </li>
+              <li class="nav-item">
+                  <a class="nav-link " href="../admin/add-product-category.php">Add category</a>
+              </li>
 
             <li class="nav-item ">
-              <a class="nav-link dropdown-toggle dropdown-toggle-collapse" href="#snippetsSidebarNavNaturalCollapse" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="snippetsSidebarNavNaturalCollapse">Natural antioxidant</a>
-
-              <div id="snippetsSidebarNavNaturalCollapse" class="nav-collapse collapse ">
-                <a class="nav-link " href="features-general.html">Arresto Liquithox</a>
-                <a class="nav-link " href="features-stats.html">Arresto Rethox</a>
-                <a class="nav-link " href="features-step.html">Arresto Acidox</a>
-                <a class="nav-link " href="features-navs.html">Arresto 1.5 Conc.</a>
-                <a class="nav-link " href="features-navs.html">Oxabiol Premium</a>
-                <a class="nav-link " href="features-navs.html">Oxabiol blends</a>
-              </div>
+              <a class="nav-link dropdown-toggle dropdown-toggle-collapse" href="#snippetsSidebarNavPlantExtractCollapse"
+                 role="button" data-bs-toggle="collapse" aria-expanded="false"
+                 aria-controls="snippetsSidebarNavPlantExtractCollapse">Plant extract</a>
+                <?php
+                $conn = new mysqli("localhost", "root", "", "bio");
+                // Check connection
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                }
+                $sql = "SELECT * FROM article WHERE article_type = 'PLANT' ";
+                $result = $conn->query($sql);
+                ?>
+                <?php while ($row = $result->fetch_assoc()) : ?>
+                <div id="snippetsSidebarNavPlantExtractCollapse" class="nav-collapse collapse ">
+                  <a class="nav-link " href="../admin/edit-plant-extract.php?id=<?php echo $row['article_id']; ?>"><?php echo $row['article_Header']; ?></a>
+                </div>
             </li>
+          <?php endwhile ?>
+
 
             <li class="nav-item ">
-              <a class="nav-link dropdown-toggle dropdown-toggle-collapse" href="#snippetsSidebarNavPigmentCollapse" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="snippetsSidebarNavPigmentCollapse">Pigment</a>
-
-              <div id="snippetsSidebarNavPigmentCollapse" class="nav-collapse collapse ">
-                <a class="nav-link " href="features-general.html">BS Leader yellow 2%</a>
-                <a class="nav-link " href="features-stats.html">BS Leader red 1%</a>
-                <a class="nav-link " href="features-step.html">Leader Golden 50 EXT</a>
-                <a class="nav-link " href="features-navs.html">Leader Pink 100 EXT</a>
-                <a class="nav-link " href="features-navs.html">Leader Red 100 EXT</a>
-              </div>
+              <a class="nav-link dropdown-toggle dropdown-toggle-collapse" href="#snippetsSidebarNavNaturalCollapse"
+                 role="button" data-bs-toggle="collapse" aria-expanded="false"
+                 aria-controls="snippetsSidebarNavNaturalCollapse">Natural antioxidant</a>
+                <?php
+                $conn = new mysqli("localhost", "root", "", "bio");
+                // Check connection
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                }
+                $sql = "SELECT * FROM article WHERE article_type = 'NATURAL' ";
+                $result = $conn->query($sql);
+                ?>
+                <?php while ($row = $result->fetch_assoc()) : ?>
+                <div id="snippetsSidebarNavNaturalCollapse" class="nav-collapse collapse ">
+                    <a class="nav-link " href="../admin/edit-natural.php?id=<?php echo $row['article_id']; ?>"><?php echo $row['article_Header']; ?></a>
+                </div>
             </li>
+          <?php endwhile ?>
 
             <li class="nav-item ">
-              <a class="nav-link dropdown-toggle dropdown-toggle-collapse" href="#snippetsSidebarNavImmuneCollapse" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="snippetsSidebarNavImmuneCollapse">Immune Stimulant</a>
+              <a class="nav-link dropdown-toggle dropdown-toggle-collapse"
+                 href="#snippetsSidebarNavPigmentCollapse"
+                 role="button" data-bs-toggle="collapse" aria-expanded="false"
+                 aria-controls="snippetsSidebarNavPigmentCollapse">Pigment</a>
 
-              <div id="snippetsSidebarNavImmuneCollapse" class="nav-collapse collapse ">
-                <a class="nav-link " href="features-general.html">Biolex MB 40</a>
-                <a class="nav-link " href="features-stats.html">Beta S</a>
-                <a class="nav-link " href="features-step.html">Cefi Pro</a>
-                <a class="nav-link " href="features-navs.html">Leiber YeaFi</a>
-              </div>
+                <?php
+                $conn = new mysqli("localhost", "root", "", "bio");
+                // Check connection
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                }
+                $sql = "SELECT * FROM article WHERE article_type = 'PIGMENT' ";
+                $result = $conn->query($sql);
+                ?>
+                <?php while ($row = $result->fetch_assoc()) : ?>
+                <div id="snippetsSidebarNavPigmentCollapse" class="nav-collapse collapse ">
+                    <a class="nav-link " href="../admin/edit-pigment.php?id=<?php echo $row['article_id']; ?>"><?php echo $row['article_Header']; ?></a>
+                </div>
             </li>
+          <?php endwhile ?>
 
             <li class="nav-item ">
-              <a class="nav-link dropdown-toggle dropdown-toggle-collapse" href="#snippetsSidebarNavAlgaeCollapse" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="snippetsSidebarNavAlgaeCollapse">Spirulina and Algae</a>
+              <a class="nav-link dropdown-toggle dropdown-toggle-collapse"
+                 href="#snippetsSidebarNavImmuneCollapse" role="button" data-bs-toggle="collapse"
+                 aria-expanded="false" aria-controls="snippetsSidebarNavImmuneCollapse">Immune Stimulant</a>
 
-              <div id="snippetsSidebarNavAlgaeCollapse" class="nav-collapse collapse ">
-                <a class="nav-link " href="features-navs.html">Biomega-Tech® HA</a>
-                <a class="nav-link " href="features-navs.html">Spirulina</a>
-                <a class="nav-link " href="features-step.html">Antenna</a>
-                <a class="nav-link " href="features-navs.html">Nutaste ® Profile</a>
-              </div>
+                <?php
+                $conn = new mysqli("localhost", "root", "", "bio");
+                // Check connection
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                }
+                $sql = "SELECT * FROM article WHERE article_type = 'IMMUNE' ";
+                $result = $conn->query($sql);
+                ?>
+                <?php while ($row = $result->fetch_assoc()) : ?>
+                <div id="snippetsSidebarNavImmuneCollapse" class="nav-collapse collapse ">
+                    <a class="nav-link " href="../admin/edit-immune.php?id=<?php echo $row['article_id']; ?>"><?php echo $row['article_Header']; ?></a>
+                </div>
             </li>
+          <?php endwhile ?>
 
             <li class="nav-item ">
-              <a class="nav-link dropdown-toggle dropdown-toggle-collapse" href="#snippetsSidebarNavPalatabilityCollapse" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="snippetsSidebarNavPalatabilityCollapse">Palatability enhancer</a>
+              <a class="nav-link dropdown-toggle dropdown-toggle-collapse"
+                 href="#snippetsSidebarNavAlgaeCollapse" role="button" data-bs-toggle="collapse"
+                 aria-expanded="false" aria-controls="snippetsSidebarNavAlgaeCollapse">Spirulina and Algae</a>
 
-              <div id="snippetsSidebarNavPalatabilityCollapse" class="nav-collapse collapse ">
-                <a class="nav-link " href="features-step.html">Antenna</a>
-                <a class="nav-link " href="features-navs.html">Nutaste ® Profile</a>
-                <a class="nav-link " href="features-navs.html">Nutaste ® Function</a>
-              </div>
+                <?php
+                $conn = new mysqli("localhost", "root", "", "bio");
+                // Check connection
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                }
+                $sql = "SELECT * FROM article WHERE article_type = 'ALGAE' ";
+                $result = $conn->query($sql);
+                ?>
+                <?php while ($row = $result->fetch_assoc()) : ?>
+                <div id="snippetsSidebarNavAlgaeCollapse" class="nav-collapse collapse ">
+                    <a class="nav-link " href="../admin/edit-algae.php?id=<?php echo $row['article_id']; ?>"><?php echo $row['article_Header']; ?></a>
+                </div>
             </li>
+          <?php endwhile ?>
 
             <li class="nav-item ">
-              <a class="nav-link dropdown-toggle dropdown-toggle-collapse" href="#snippetsSidebarNavBinderCollapse" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="snippetsSidebarNavBinderCollapse">Mycotoxin Binder</a>
+              <a class="nav-link dropdown-toggle dropdown-toggle-collapse"
+                 href="#snippetsSidebarNavPalatabilityCollapse" role="button" data-bs-toggle="collapse"
+                 aria-expanded="false" aria-controls="snippetsSidebarNavPalatabilityCollapse">Palatability enhancer</a>
 
-              <div id="snippetsSidebarNavBinderCollapse" class="nav-collapse collapse ">
-                <a class="nav-link " href="features-step.html">Detoxizyme</a>
-                <a class="nav-link " href="features-navs.html">Detoxizyme Conc.</a>
-              </div>
+                <?php
+                $conn = new mysqli("localhost", "root", "", "bio");
+                // Check connection
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                }
+                $sql = "SELECT * FROM article WHERE article_type = 'PALATABILITY' ";
+                $result = $conn->query($sql);
+                ?>
+                <?php while ($row = $result->fetch_assoc()) : ?>
+                <div id="snippetsSidebarNavPalatabilityCollapse" class="nav-collapse collapse ">
+                    <a class="nav-link " href="../admin/edit-palatability.php?id=<?php echo $row['article_id']; ?>"><?php echo $row['article_Header']; ?></a>
+                </div>
             </li>
+          <?php endwhile ?>
 
             <li class="nav-item ">
-              <a class="nav-link dropdown-toggle dropdown-toggle-collapse" href="#snippetsSidebarNavEmuCollapse" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="snippetsSidebarNavEmuCollapse">Emulsifier</a>
+              <a class="nav-link dropdown-toggle dropdown-toggle-collapse"
+                 href="#snippetsSidebarNavBinderCollapse" role="button" data-bs-toggle="collapse"
+                 aria-expanded="false" aria-controls="snippetsSidebarNavBinderCollapse">Mycotoxin Binder</a>
 
-              <div id="snippetsSidebarNavEmuCollapse" class="nav-collapse collapse ">
-                <a class="nav-link " href="features-step.html">Liposorb P</a>
-                <a class="nav-link " href="features-navs.html">Liposorb DS</a>
-              </div>
+                <?php
+                $conn = new mysqli("localhost", "root", "", "bio");
+                // Check connection
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                }
+                $sql = "SELECT * FROM article WHERE article_type = 'BINDER' ";
+                $result = $conn->query($sql);
+                ?>
+                <?php while ($row = $result->fetch_assoc()) : ?>
+                <div id="snippetsSidebarNavBinderCollapse" class="nav-collapse collapse ">
+                    <a class="nav-link " href="../admin/edit-binder.php?id=<?php echo $row['article_id']; ?>"><?php echo $row['article_Header']; ?></a>
+                </div>
             </li>
+          <?php endwhile ?>
+
+            <li class="nav-item ">
+              <a class="nav-link dropdown-toggle dropdown-toggle-collapse"
+                 href="#snippetsSidebarNavEmuCollapse" role="button" data-bs-toggle="collapse"
+                 aria-expanded="false" aria-controls="snippetsSidebarNavEmuCollapse">Emulsifier</a>
+
+                <?php
+                $conn = new mysqli("localhost", "root", "", "bio");
+                // Check connection
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                }
+                $sql = "SELECT * FROM article WHERE article_type = 'EMULSIFIER' ";
+                $result = $conn->query($sql);
+                ?>
+                <?php while ($row = $result->fetch_assoc()) : ?>
+                <div id="snippetsSidebarNavEmuCollapse" class="nav-collapse collapse ">
+                    <a class="nav-link " href="../admin/edit-emulsifier.php?id=<?php echo $row['article_id']; ?>"><?php echo $row['article_Header']; ?></a>
+                </div>
+            </li>
+          <?php endwhile ?>
+
 
             <li class="nav-item my-2 my-lg-5"></li>
 
@@ -275,30 +351,24 @@
               <span class="nav-subtitle">Sustainable development</span>
             </li>
 
+              <li class="nav-item">
+                  <a class="nav-link " href="../admin/add-development.php">Add Development</a>
+              </li>
 
-            <li class="nav-item">
-              <a class="nav-link " href="../documentation/accordion.html">Technical support</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link " href="../documentation/alerts.html">Business development</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link " href="../documentation/avatars.html">Product development</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link " href="../documentation/badge.html">Research development and innovation center</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link " href="../documentation/breadcrumb.html">Quality control and assurance</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link " href="../documentation/buttons.html">Product registration</a>
-            </li>
+              <?php
+              $conn = new mysqli("localhost", "root", "", "bio");
+              // Check connection
+              if ($conn->connect_error) {
+                  die("Connection failed: " . $conn->connect_error);
+              }
+              $sql = "SELECT * FROM article WHERE article_type = 'SUSTAINABLE' ";
+              $result = $conn->query($sql);
+              ?>
+              <?php while ($row = $result->fetch_assoc()) : ?>
+                  <li class="nav-item">
+                      <a class="nav-link " href="../admin/edit-sustainable.php?id=<?php echo $row['article_id']; ?>"><?php echo $row['article_Header']; ?></a>
+                  </li>
+              <?php endwhile ?>
 
             <li class="nav-item my-2 my-lg-5"></li>
 
@@ -309,6 +379,45 @@
             <li class="nav-item">
               <a class="nav-link " href="../admin/edit-knowledge.php">Knowledge</a>
             </li>
+
+
+              <li class="nav-item my-2 my-lg-5"></li>
+
+              <li class="nav-item">
+                  <span class="nav-subtitle">PRODUCT CATEGORY</span>
+              </li>
+
+              <li class="nav-item">
+                  <a class="nav-link " href="../admin/add-product-category.php">Add category</a>
+              </li>
+
+              <li class="nav-item">
+                  <a class="nav-link " href="../admin/list-product-cat.php">List category</a>
+              </li>
+
+
+              <?php
+              $conn = new mysqli("localhost", "root", "", "bio");
+              // Check connection
+              if ($conn->connect_error) {
+                  die("Connection failed: " . $conn->connect_error);
+              }
+
+              $sql = "SELECT Type FROM productcategory 
+                     WHERE GroupType = 'ProductCategory' ";
+              $result = $conn->query($sql);
+
+              ?>
+              <?php while ($row = $result->fetch_assoc()) : ?>
+                  <li class="nav-item">
+                      <a class="nav-link " href="../admin/list-product-cat.php?id=<?php echo $row['Type']; ?>"><?php echo $row['Type']; ?></a>
+                  </li>
+
+              <?php endwhile ?>
+
+
+
+
 
           </ul>
         </div>
@@ -322,77 +431,19 @@
     <div class="navbar-sidebar-aside-content content-space-1 content-space-md-2 px-lg-5 px-xl-10">
       <div class="row justify-content-md-between align-items-md-center mb-10">
         <div class="col-md-6 col-xl-5">
-          <div class="mb-4">
-            <h1 class="mb-3" style="font-size: 3rem;">Boost <span class="text-primary text-highlight-warning">your idea</span> with native components.</h1>
-            <p class="lead">Components are the reusable building blocks of our design system to create patterns and intuitive user experiences.</p>
-          </div>
 
-          <div class="d-flex flex-wrap gap-2">
-            <!-- Card -->
-            <div class="card card-sm card-borderless bg-soft-secondary text-center rounded" style="min-width: 8rem;">
-              <div class="card-body">
-                <h2 class="h1 fw-normal mb-1">45</h2>
-                <span class="small text-cap mb-0">Components</span>
-              </div>
-            </div>
-            <!-- End Card -->
-
-            <!-- Card -->
-            <div class="card card-sm card-borderless bg-soft-secondary text-center rounded" style="min-width: 8rem;">
-              <div class="card-body">
-                <h2 class="h1 fw-normal mb-1">20</h2>
-                <span class="small text-cap mb-0">Plugins</span>
-              </div>
-            </div>
-            <!-- End Card -->
-
-            <!-- Card -->
-            <div class="card card-sm card-borderless bg-soft-secondary text-center rounded" style="min-width: 8rem;">
-              <div class="card-body">
-                <h2 class="h1 fw-normal mb-1">500+</h2>
-                <span class="small text-cap mb-0">Combinations</span>
-              </div>
-            </div>
-            <!-- End Card -->
-          </div>
-        </div>
-        <!-- End Col -->
-
-        <div class="col-md-6 col-xl-6">
-          <img class="img-fluid" src="../assets/svg/illustrations/oc-project-development.svg" alt="Image Description">
-        </div>
-        <!-- End Col -->
       </div>
       <!-- End Row -->
 
-      <span class="divider-center text-cap mb-8">Design &amp; Graphics</span>
+      <span class="divider-center mb-10 lg-5">Design &amp; Graphics</span>
 
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-5 mb-6">
         <div class="col mb-4">
           <!-- Card -->
-          <a class="card card-sm card-transition h-100" href="../documentation/bs-icons.html">
-            <img class="card-img p-2" src="../assets/svg/design-system/docs-bs-icons.svg" alt="Image Description">
-            <div class="card-body">
-              <h4 class="card-title text-inherit">Bootstrap Icons</h4>
-              <p class="card-text small text-body">Free, high quality, open source icon library with over 1,300 icons. Include them anyway you like—SVGs, SVG sprite, or web fonts.</p>
-            </div>
-          </a>
-          <!-- End Card -->
-        </div>
-        <!-- End Col -->
-      </div>
-      <!-- End Row -->
-
-      <span class="divider-center text-cap mb-8">Components</span>
-
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-5 mb-6">
-        <div class="col mb-4">
-          <!-- Card -->
-          <a class="card card-sm card-transition h-100" href="../documentation/accordion.html">
+          <a class="card card-sm card-transition h-100" href="../admin/edit-mission-vision.php">
             <img class="card-img p-2" src="../assets/svg/design-system/docs-accordion.svg" alt="Image Description">
             <div class="card-body">
-              <h4 class="card-title text-inherit">Accordion</h4>
-              <p class="card-text small text-body">Vertically collapsing accordions.</p>
+              <h4 class="card-title text-inherit">Mission & Vision</h4>
             </div>
           </a>
           <!-- End Card -->
@@ -403,28 +454,64 @@
         <div class="col mb-4">
           <!-- Card -->
           <a class="card card-sm card-transition h-100" href="../documentation/alerts.html">
-            <img class="card-img p-2" src="../assets/svg/design-system/docs-alerts.svg" alt="Image Description">
+              <img class="card-img p-2" src="../assets/svg/design-system/docs-accordion.svg" alt="Image Description">
             <div class="card-body">
-              <h4 class="card-title text-inherit">Alerts</h4>
-              <p class="card-text small text-body">An alert lets users know when important information is available or when an action is required.</p>
+              <h4 class="card-title text-inherit">Core values</h4>
             </div>
           </a>
           <!-- End Card -->
         </div>
         <!-- End Col -->
 
-        <div class="col mb-4">
-          <!-- Card -->
-          <a class="card card-sm card-transition h-100" href="../documentation/avatars.html">
-            <img class="card-img p-2" src="../assets/svg/design-system/docs-avatars.svg" alt="Image Description">
-            <div class="card-body">
-              <h4 class="card-title text-inherit">Avatars</h4>
-              <p class="card-text small text-body">An avatar is a visual representation of a user or entity.</p>
-            </div>
-          </a>
-          <!-- End Card -->
-        </div>
-        <!-- End Col -->
+          <div class="col mb-4">
+              <!-- Card -->
+              <a class="card card-sm card-transition h-100" href="../admin/edit-knowledge.php">
+                  <img class="card-img p-2" src="../assets/svg/design-system/docs-accordion.svg" alt="Image Description">
+                  <div class="card-body">
+                      <h4 class="card-title text-inherit">Knowledge</h4>
+                  </div>
+              </a>
+              <!-- End Card -->
+          </div>
+          <!-- End Col -->
+
+          <div class="col mb-4">
+              <!-- Card -->
+              <a class="card card-sm card-transition h-100" href="../documentation/alerts.html">
+                  <img class="card-img p-2" src="../assets/svg/design-system/docs-accordion.svg" alt="Image Description">
+                  <div class="card-body">
+                      <h4 class="card-title text-inherit">Core competency</h4>
+                  </div>
+              </a>
+              <!-- End Card -->
+          </div>
+          <!-- End Col -->
+
+
+          <?php
+          $conn = new mysqli("localhost", "root", "", "bio");
+          // Check connection
+          if ($conn->connect_error) {
+              die("Connection failed: " . $conn->connect_error);
+          }
+          $sql = "SELECT * FROM article WHERE article_type = 'INDUSTRY' ";
+          $result = $conn->query($sql);
+          ?>
+          <?php while ($row = $result->fetch_assoc()) : ?>
+          <div class="col mb-4">
+
+              <!-- Card -->
+              <a class="card card-sm card-transition h-100" href="../admin/edit-feed-industry.php?id=<?php echo $row['article_id']; ?>">
+                  <img class="card-img p-2" src="../assets/svg/design-system/docs-accordion.svg" alt="Image Description">
+                  <div class="card-body">
+                      <h4 class="card-title text-inherit " ><?= $row['article_Header'] ?></h4>
+                  </div>
+              </a>
+              <!-- End Card -->
+
+          </div>
+          <?php endwhile ?>
+          <!-- End Col -->
 
         <div class="col mb-4">
           <!-- Card -->
@@ -432,7 +519,6 @@
             <img class="card-img p-2" src="../assets/svg/design-system/docs-badge.svg" alt="Image Description">
             <div class="card-body">
               <h4 class="card-title text-inherit">Badge</h4>
-              <p class="card-text small text-body">A badge is a visual indicator for numeric values such as tallies and scores.</p>
             </div>
           </a>
           <!-- End Card -->
@@ -754,179 +840,6 @@
       </div>
       <!-- End Row -->
 
-      <span class="divider-center text-cap mb-8">Navbars</span>
-
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-5 mb-6">
-        <div class="col mb-4">
-          <!-- Card -->
-          <a class="card card-sm card-transition h-100" href="../documentation/navbar.html">
-            <img class="card-img p-2" src="../assets/svg/design-system/docs-navbar.svg" alt="Image Description">
-            <div class="card-body">
-              <h4 class="card-title text-inherit">Header (navbar)</h4>
-              <p class="card-text small text-body">Powerful and responsive navigation header, the navbar.</p>
-            </div>
-          </a>
-          <!-- End Card -->
-        </div>
-        <!-- End Col -->
-
-        <div class="col mb-4">
-          <!-- Card -->
-          <a class="card card-sm card-transition h-100" href="../documentation/navs.html">
-            <img class="card-img p-2" src="../assets/svg/design-system/docs-navs.svg" alt="Image Description">
-            <div class="card-body">
-              <h4 class="card-title text-inherit">Navs</h4>
-              <p class="card-text small text-body">Documentation and examples for how to use navigation components.</p>
-            </div>
-          </a>
-          <!-- End Card -->
-        </div>
-        <!-- End Col -->
-
-        <div class="col mb-4">
-          <!-- Card -->
-          <a class="card card-sm card-transition h-100" href="../documentation/mega-menu.html">
-            <img class="card-img p-2" src="../assets/svg/design-system/docs-mega-menu.svg" alt="Image Description">
-            <div class="card-body">
-              <h4 class="card-title text-inherit">Mega Menu</h4>
-              <p class="card-text small text-body">A powerful, and responsive navigation mega menu.</p>
-            </div>
-          </a>
-          <!-- End Card -->
-        </div>
-        <!-- End Col -->
-
-        <div class="col mb-4">
-          <!-- Card -->
-          <a class="card card-sm card-transition h-100" href="../documentation/scrollspy.html">
-            <img class="card-img p-2" src="../assets/svg/design-system/docs-scrollspy.svg" alt="Image Description">
-            <div class="card-body">
-              <h4 class="card-title text-inherit">Scrollspy</h4>
-              <p class="card-text small text-body">Automatically update Unify navigation or list group components based on scroll position to indicate which link is currently active in the viewport.</p>
-            </div>
-          </a>
-          <!-- End Card -->
-        </div>
-        <!-- End Col -->
-      </div>
-      <!-- End Row -->
-
-      <span class="divider-center text-cap mb-8">Basic forms</span>
-
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-5 mb-6">
-        <div class="col mb-4">
-          <!-- Card -->
-          <a class="card card-sm card-transition h-100" href="../documentation/basic-forms.html">
-            <img class="card-img p-2" src="../assets/svg/design-system/docs-basic-forms.svg" alt="Image Description">
-            <div class="card-body">
-              <h4 class="card-title text-inherit">Basic Forms</h4>
-              <p class="card-text small text-body">Examples and usage guidelines for form control styles, layout options, and custom components for creating a wide variety of forms.</p>
-            </div>
-          </a>
-          <!-- End Card -->
-        </div>
-        <!-- End Col -->
-
-        <div class="col mb-4">
-          <!-- Card -->
-          <a class="card card-sm card-transition h-100" href="../documentation/checks-and-switches.html">
-            <img class="card-img p-2" src="../assets/svg/design-system/docs-checks-and-switches.svg" alt="Image Description">
-            <div class="card-body">
-              <h4 class="card-title text-inherit">Checks &amp; Switches</h4>
-              <p class="card-text small text-body">A checkbox is an input control that allows a user to select one or more options from a number of choices.</p>
-            </div>
-          </a>
-          <!-- End Card -->
-        </div>
-        <!-- End Col -->
-
-        <div class="col mb-4">
-          <!-- Card -->
-          <a class="card card-sm card-transition h-100" href="../documentation/input-group.html">
-            <img class="card-img p-2" src="../assets/svg/design-system/docs-input-group.svg" alt="Image Description">
-            <div class="card-body">
-              <h4 class="card-title text-inherit">Input Group</h4>
-              <p class="card-text small text-body">Easily extend form controls by adding text, buttons, or button groups on either side of textual inputs, custom selects, and custom file inputs.</p>
-            </div>
-          </a>
-          <!-- End Card -->
-        </div>
-        <!-- End Col -->
-      </div>
-      <!-- End Row -->
-
-      <span class="divider-center text-cap mb-8">Media</span>
-
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-5 mb-6">
-        <div class="col mb-4">
-          <!-- Card -->
-          <a class="card card-sm card-transition h-100" href="../documentation/fslightbox.html">
-            <img class="card-img p-2" src="../assets/svg/design-system/docs-fslightbox.svg" alt="Image Description">
-            <div class="card-body">
-              <h4 class="card-title text-inherit">Fullscreen Lightbox</h4>
-              <p class="card-text small text-body">Simple and powerful lightbox for displaying photos, HTML5 or YouTube videos in clean overlaying box.</p>
-            </div>
-          </a>
-          <!-- End Card -->
-        </div>
-        <!-- End Col -->
-
-        <div class="col mb-4">
-          <!-- Card -->
-          <a class="card card-sm card-transition h-100" href="../documentation/swiper.html">
-            <img class="card-img p-2" src="../assets/svg/design-system/docs-swiper.svg" alt="Image Description">
-            <div class="card-body">
-              <h4 class="card-title text-inherit">Swiper</h4>
-              <p class="card-text small text-body">Most modern mobile touch slider.</p>
-            </div>
-          </a>
-          <!-- End Card -->
-        </div>
-        <!-- End Col -->
-      </div>
-      <!-- End Row -->
-
-      <span class="divider-center text-cap mb-8">Others</span>
-
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-5">
-        <div class="col mb-4">
-          <!-- Card -->
-          <a class="card card-sm card-transition h-100" href="../documentation/sticky-block.html">
-            <img class="card-img p-2" src="../assets/svg/design-system/docs-sticky-block.svg" alt="Image Description">
-            <div class="card-body">
-              <h4 class="card-title text-inherit">Sticky Block</h4>
-              <p class="card-text small text-body">This is for making any block floating on your page.</p>
-            </div>
-          </a>
-          <!-- End Card -->
-        </div>
-        <!-- End Col -->
-
-        <div class="col mb-4">
-          <!-- Card -->
-          <a class="card card-sm card-transition h-100" href="../documentation/countdown.html">
-            <img class="card-img p-2" src="../assets/svg/design-system/docs-countdown.svg" alt="Image Description">
-            <div class="card-body">
-              <h4 class="card-title text-inherit">Countdown</h4>
-              <p class="card-text small text-body">A simple JavaScript API for producing an accurate, intuitive description of the timespan between two Date instances.</p>
-            </div>
-          </a>
-          <!-- End Card -->
-        </div>
-        <!-- End Col -->
-
-        <div class="col mb-4">
-          <!-- Card -->
-          <a class="card card-sm card-transition h-100" href="../documentation/go-to.html">
-            <img class="card-img p-2" src="../assets/svg/design-system/docs-go-to.svg" alt="Image Description">
-            <div class="card-body">
-              <h4 class="card-title text-inherit">Go To</h4>
-              <p class="card-text small text-body">Smooth scroll back to the top of the page.</p>
-            </div>
-          </a>
-          <!-- End Card -->
-        </div>
-        <!-- End Col -->
       </div>
       <!-- End Row -->
     </div>
@@ -955,16 +868,16 @@
   <!-- ========== END SECONDARY CONTENTS ========== -->
 
   <!-- JS Global Compulsory  -->
-  <script src=".../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
   <!-- JS Implementing Plugins -->
-  <script src=".../assets/vendor/hs-header/dist/hs-header.min.js"></script>
-  <script src=".../assets/vendor/list.js/dist/list.min.js"></script>
-  <script src=".../assets/vendor/hs-go-to/dist/hs-go-to.min.js"></script>
-  <script src=".../assets/vendor/prism/prism.js"></script>
+  <script src="../assets/vendor/hs-header/dist/hs-header.min.js"></script>
+  <script src="../assets/vendor/list.js/dist/list.min.js"></script>
+  <script src="../assets/vendor/hs-go-to/dist/hs-go-to.min.js"></script>
+  <script src="../assets/vendor/prism/prism.js"></script>
 
   <!-- JS Unify -->
-  <script src=".../assets/js/theme.min.js"></script>
+  <script src="../assets/js/theme.min.js"></script>
 
   <!-- JS Plugins Init. -->
   <script>
@@ -972,6 +885,27 @@
       // INITIALIZATION OF HEADER
       // =======================================================
       new HSHeader('#header').init()
+
+        // INITIALIZATION OF NAV SCROLLER
+        // =======================================================
+        new HsNavScroller('.js-nav-scroller', {
+            delay: 400,
+            offset: 140
+        })
+
+
+        // INITIALIZATION OF LISTJS COMPONENT
+        // =======================================================
+        const snippetsSearch = HSCore.components.HSList.init('#snippetsSearch');
+
+
+        // GET JSON FILE RESULTS
+        // =======================================================
+        fetch('../assets/json/snippets-search.json')
+            .then(response => response.json())
+            .then(data => {
+                snippetsSearch.getItem(0).add(data)
+            })
 
       // INITIALIZATION OF GO TO
       // =======================================================
