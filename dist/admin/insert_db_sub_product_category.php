@@ -1,6 +1,12 @@
 <?php
 
-$conn = mysqli_connect("localhost", "root", "", "bio"); // เชื่อมต่อฐานข้อมูล
+    include 'config.php';
+        $host=$config['DB_HOST'];
+        $User=$config['DB_USERNAME'];
+        $Pass=$config['DB_PASSWORD'];
+        $dbname=$config['DB_DATABASE'];
+
+$conn = mysqli_connect("$host", "$User", "$Pass", "$dbname"); // เชื่อมต่อฐานข้อมูล
 mysqli_query($conn, "SET NAMES 'utf8' ");
 
 //สร้างตัวแปร
@@ -63,7 +69,7 @@ if ($result) {
     window.alert('เพิ่มรูปแล้ว');
     history.go(-1);
     </script>");
-    header("location: ../admin/add-sub-product.php"); //บันทึกแล้วไปหน้าใหม่
+    header("location: ../admin/list-product-cat.php?id=$header_Id"); //บันทึกแล้วไปหน้าใหม่
     //echo '<script>alert("เพิ่มรูปแล้ว")</script>';
     //header('Location: ' . $_SERVER['HTTP_REFERER']); //บันทึกแล้วย้อนกลับ
 } else {

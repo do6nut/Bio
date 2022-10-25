@@ -1,2 +1,2 @@
 <?php
-header("location: ./dist/index.html");
+header("location: ./dist/index.php");

@@ -1,6 +1,12 @@
 <?php
 
-$conn = mysqli_connect("localhost", "root", "", "bio"); // เชื่อมต่อฐานข้อมูล
+    include 'config.php';
+        $host=$config['DB_HOST'];
+        $User=$config['DB_USERNAME'];
+        $Pass=$config['DB_PASSWORD'];
+        $dbname=$config['DB_DATABASE'];
+
+$conn = mysqli_connect("$host", "$User", "$Pass", "$dbname"); // เชื่อมต่อฐานข้อมูล
 mysqli_query($conn, "SET NAMES 'utf8' ");
 
 
@@ -15,6 +21,11 @@ $sql = "DELETE FROM productcategory WHERE Type = '$id' ";
 
 echo "<script type='text/javascript'>alert(' $sql ');</script>";
 $result = mysqli_query($conn, $sql);
+
+$sql1 = "DELETE FROM article WHERE article_type = '$id' ";
+
+echo "<script type='text/javascript'>alert(' $sql ');</script>";
+$result = mysqli_query($conn, $sql1);
 
 echo "<script type='text/javascript'>alert(' $result ');</script>";
 

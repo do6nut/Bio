@@ -1,6 +1,11 @@
 <?php
+    include 'config.php';
+        $host=$config['DB_HOST'];
+        $User=$config['DB_USERNAME'];
+        $Pass=$config['DB_PASSWORD'];
+        $dbname=$config['DB_DATABASE'];
 
-$conn = mysqli_connect("localhost", "root", "", "bio"); // เชื่อมต่อฐานข้อมูล
+$conn = mysqli_connect("$host", "$User", "$Pass", "$dbname");// เชื่อมต่อฐานข้อมูล
 mysqli_query($conn, "SET NAMES 'utf8' ");
 
 

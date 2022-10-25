@@ -1,6 +1,12 @@
-<?php
+vvvvvv<?php
 
-$conn = mysqli_connect("localhost", "root", "", "bio"); // เชื่อมต่อฐานข้อมูล
+    include 'config.php';
+        $host=$config['DB_HOST'];
+        $User=$config['DB_USERNAME'];
+        $Pass=$config['DB_PASSWORD'];
+        $dbname=$config['DB_DATABASE'];
+
+$conn = mysqli_connect("$host", "$User", "$Pass", "$dbname"); // เชื่อมต่อฐานข้อมูล
 mysqli_query($conn, "SET NAMES 'utf8' ");
 
 
@@ -10,7 +16,7 @@ if (isset($_FILES["knowledge_Img"])) {
     $knowledge_Img = $_FILES['knowledge_Img']['name'];
 }
 
-//เพิ่มข้อมูล
+//เพิ่มข้อมูลvvv
 $sql = " INSERT INTO knowledge
 	(
      knowledge_Img
