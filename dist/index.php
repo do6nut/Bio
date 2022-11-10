@@ -34,7 +34,7 @@
 <body>
 <!-- ========== HEADER ========== -->
     <?php
-        include("header.php")
+    include("header.php")
     ?>
 <!-- ========== HEADER ========== -->
 
@@ -102,231 +102,106 @@
   </div>
   <!-- End Hero -->
 
-  <!-- Card Grid -->
-  <div class="container content-space-1 content-space-lg-1">
-    <div class="col-md-6 mb-3 mb-md-0">
-        <a class="nav-link " href="./list-social-enterprise.php">
-        <h2 class="text-primary" >Social enterprise</h2></a>
-    </div>
-      <div class="row justify-content-lg-between">
-          <div class="col-lg-9 mb-10 mb-lg-0">
-
-          <?php
-//           $conn = new mysqli("$host", "$User", "$Pass", "$dbname");
-//          // Check connection
-//          if ($conn->connect_error) {
-//              die("Connection failed: " . $conn->connect_error);
-//          }
-          $sql = "SELECT * FROM article WHERE article_type = 'Social enterprise' ORDER BY article_Timestamp DESC LIMIT 2";
-          $result = $conn->query($sql);
-          ?>
-          <?php while ($row = $result->fetch_assoc()) : ?>
-
-                  <div class="d-grid gap-7 mb-7">
-                      <!-- Card -->
-                      <a class="card card-ghost card-transition-zoom h-100" href="article-industry.php?id=<?php echo $row['article_id']; ?>">
-                          <div class="row">
-                              <div class="col-sm-5">
-                                  <img class="card-img"  src="./assets/img/uploads/<?= $row['article_Image_1'] ?>" alt="Image Description">
-                              </div>
-                              <!-- End Col -->
-                              <div class="col-sm-7">
-
-                                  <h4> <?= $row['article_Header'] ?></h4>
-                                  <p class="card-text">
-                                      <?= $row['article_ConEn1'] ?></p>
-
-                                  <!-- Card Footer -->
-                                  <div class="card-footer">
-                                      <div class="card-footer">
-                                          <span class="card-link">Read more</span>
-                                      </div>
-                                  </div>
-                                  <!-- End Card Footer -->
-                              </div>
-                              <!-- End Col -->
-                          </div>
-                          <!-- End Row -->
-                      </a>
-             <?php endwhile ?>
-                  </div>
-          </div>
-        <!-- Sticky Block End Point -->
-     <div id="stickyBlockEndPoint"></div>
-      </div>
-      <!-- End Col -->
-
-      <div class="col-lg-3">
-      <?php
-//       $conn = new mysqli("$host", "$User", "$Pass", "$dbname");
-//      // Check connection
-//      if ($conn->connect_error) {
-//          die("Connection failed: " . $conn->connect_error);
-//      }
-      $sql = "SELECT * FROM article WHERE article_type = 'Social enterprise' ORDER BY article_Timestamp DESC LIMIT 3 OFFSET 2";
-      $result = $conn->query($sql);
-      ?>
-      <?php while ($row = $result->fetch_assoc()) : ?>
-
-            <div class="d-grid gap-3">
-
-                <!-- Card -->
-                <a class="d-block" href="article-industry.php?id=<?php echo $row['article_id']; ?>"">
-                    <div class="d-flex align-items-center">
-                        <div class="flex-shrink-0">
-                            <div class="avatar avatar-lg">
-                                <img class="avatar-img"
-                                     style width="320" height="320"
-                                     src="./assets/img/uploads/<?= $row['article_Image_1'] ?>" alt="Image Description">
-                            </div>
-                        </div>
-                        <div class="flex-grow-1 ms-3">
-                            <h6 class="text-inherit mb-0"> <?= $row['article_Header'] ?></h6>
-                        </div>
-                    </div>
-                </a>
-                <!-- End Card -->
-                <?php endwhile ?>
-            </div>
-          </div>
-    </div>
-  <!-- End Col -->
-  </div>
-  <!-- End Row -->
-  </div>
-  <!-- End Card Grid -->
-
-
-  <!-- Card Grid -->
-  <div class="container content-space-lg-0">
-<!--    <div class="container content-space-2 content-space-lg-3">-->
-    <!-- Heading -->
-<!--   <div class="w-lg-65 mx-lg-auto mb-5 mb-sm-7 mb-lg-10">-->
-      <div class="col-md-6 mb-3 mb-md-0">
-          <a class="nav-link " href="./list-feature-post.php">
-              <h2 class="text-primary">Feature post</h2>
-          </a>
-    </div>
-    <!-- End Heading -->
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
-
-
-        <?php
- $conn = new mysqli("$host", "$User", "$Pass", "$dbname");
-        // Check connection
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
-        $sql = "SELECT * FROM article WHERE article_type = 'featurepost' ORDER BY article_Timestamp DESC LIMIT 3";
-        $result = $conn->query($sql);
-        ?>
-        <?php while ($row = $result->fetch_assoc()) : ?>
-
-            <div class="col mb-5 mb-md-0">
-                <!-- Card -->
-                <a class="card card-ghost card-transition-zoom h-100" href="article-industry.php?id=<?php echo $row['article_id']; ?>">
-                    <div class="card-transition-zoom-item">
-                        <img class="card-img"
-                             style width="580" height="250"
-                             src="./assets/img/uploads/<?= $row['article_Image_1'] ?>" alt="Image Description">
-                    </div>
-
-                    <div class="card-body">
-                        <h4><?= $row['article_Header'] ?></h4>
-                        <p class="card-text">
-                            <?= $row['article_ConEn1'] ?></p>
-                    </div>
-
-                    <div class="card-footer">
-                        <span class="card-link">Read more</span>
-                    </div>
-                </a>
-                <!-- End Card -->
-            </div>
-            <!-- End Col -->
-            <?php endwhile ?>
-    </div>
-    <!-- End Row -->
-  </div>
-  <!-- End Card Grid -->
-
-  <!-- Testimonials -->
-  <div class=" overflow-hidden">
-<!--    <div class="bg-dark overflow-hidden">-->
-      <div class="container position-relative content-space-lg-1">
-<!--        <div class="container position-relative content-space-2 content-space-lg-3">-->
-      <div class="row align-items-md-center mb-7">
-        <div class="col-md-6 mb-3 mb-md-0">
-            <a class="nav-link " href="./list-cust-feedback.php">
-                <h2 class="text-primary" >Customer and social feedback</h2></a>
-        </div>
-        <!-- End Col -->
-
-<!--          <div class="col-md text-md-end">-->
-<!--          &lt;!&ndash; Swiper Arrows &ndash;&gt;-->
-<!--          <div class="js-swiper-testimonials-button-prev swiper-button-prev swiper-static-button-prev"></div>-->
-<!--          <div class="js-swiper-testimonials-button-next swiper-button-next swiper-static-button-next"></div>-->
-<!--          &lt;!&ndash; End Swiper Arrows &ndash;&gt;-->
+<!--    <div class="container content-space-t-3 content-space-t-lg-6 content-space-b-2 content-space-b-lg-3 overflow-hidden">-->
+<!--       Card Grid -->
+<!--        <div class="">-->
+<!--            <div class="row">-->
+<!--                    Start Col -->
+<!--                    <div class="col-4 col-sm-4">-->
+<!--                       Card -->
+<!--                        <div class="card">-->
+<!--                            <div class="card-body">-->
+<!--                                <a class="card card-ghost card-transition-zoom h-100">-->
+<!--                                    <div class="card-transition-zoom-item col-lg-9">-->
+<!--                                        <img class="img-fluid" src="./assets/img/uploads/CEO.png"-->
+<!--                                             alt="Image Description"-->
+<!--                                             style='height: 60%; width: 60%; object-fit: contain'>-->
+<!--                                    </div>-->
+<!--                                </a>-->
+<!--                            </div>-->
+<!--                            <!-- End Card -->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <!-- End Col -->
+<!--                <div class="col-8 col-sm-8">-->
+<!--                    <!-- Card -->
+<!--                    <div class="card">-->
+<!--                        <div class="card-body">-->
+<!--                            <a class="card card-ghost card-transition-zoom h-100">-->
+<!--                                <div class="card-transition-zoom-item">-->
+<!--                                    <h4 class="text-primary" >BIO SHINE CO.,LTD.</h4>-->
+<!--                                    <h4> Established since-->
+<!--                                        2013 focus on feed additives. The company is-->
+<!--                                        the cooperation of marketers and animal-->
+<!--                                        feed specialists with collective experiences-->
+<!--                                        of more than 20 years.-->
+<!--                                        <h4 align="right" class="text-secondary" >-->
+<!--                                        Focusing on customer-centric and to continue to-->
+<!--                                        Develop with partners, suppliers and customers-->
+<!--                                        as well as relevant. </h4>-->
+<!--                                </div>-->
+<!--                            </a>-->
+<!--                        </div>-->
+<!--                        <!-- End Card -->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
 <!--        </div>-->
-        <!-- End Col -->
-      </div>
-      <!-- End Row -->
-        <!-- Tags -->
-<!--        <div class="container content-space-b-1">-->
-<!--          <div class="text-center">-->
-<!--            <a class="btn btn-white btn-sm m-1" id="poultryStory" href="javascript:;">Poultry story</a>-->
-<!--            <a class="btn btn-white btn-sm m-1" id="swineStory" href="javascript:;">Swine story</a>-->
-<!--            <a class="btn btn-white btn-sm m-1" id="ruminantStory" href="javascript:;">Ruminant story</a>-->
-<!--            <a class="btn btn-white btn-sm m-1" id="aquaStory" herf ="javascript:;">Aquaculture story</a>-->
-<!--            <a class="btn btn-white btn-sm m-1" id="petStory" href="javascript:;">Pet story</a>-->
-<!--            <a class="btn btn-white btn-sm m-1" id="socialStory" href="javascript:;">Social story</a>-->
-<!--          </div>-->
-<!--          </div>-->
+<!--        <!-- End Row -->
+<!--    </div>-->
+
+
+    <!-- Features -->
+    <div class="overflow-hidden">
+        <div class="container content-space-1">
+            <div class="position-relative content-space-1">
+                <div class="row justify-content-lg-between align-items-md-center">
+                    <div class="col-md-6 col-lg-5 order-md-2 mb-7 mb-md-0">
+                        <div class="mb-5">
+                            <h3 class="text-primary ">BIO SHINE CO.,LTD.</h3>
+                        </div>
+
+                        <!-- Nav Pills -->
+                        <ul class="nav nav-pills nav-pills-shadow flex-md-column gap-md-1" id="featuresTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                 <blockquote class="blockquote"><em>
+                                        <h4> Established since
+                                            2013 focus on feed additives. The company is
+                                            the cooperation of marketers and animal
+                                            feed specialists with collective experiences
+                                            of more than 20 years.
+                                            <h4 align="right" class="text-secondary" >
+                                                Focusing on customer-centric and to continue to
+                                                Develop with partners, suppliers and customers
+                                                as well as relevant. </h4></em></blockquote>
+                            </li>
+                        </ul>
+                        <!-- End Nav Pills -->
+                    </div
+                    <!-- End Col -->
+
+                    <div class="col-md-6">
+                        <div class="position-relative">
+                            <!-- Tab Content -->
+                            <div class="tab-content " id="featuresTabContent">
+                                <div class="tab-pane fade show active " id="featuresOne" role="tabpanel" aria-labelledby="featuresOne-tab">
+                                    <img class="img-fluid shadow rounded-3" src="./assets/img/uploads/CEO.png" alt="Image Description">
+                                </div>
+                            </div>
+                            <!-- End Tab Content -->
+
+                        </div>
+                    </div>
+                    <!-- End Col -->
+                </div>
+                <!-- End Row -->
+
+                <div class="position-absolute top-0 end-0 w-75 w-lg-65 h-65 h-md-100 bg-soft-primary rounded-3 zi-n1 me-n5"></div>
+            </div>
         </div>
-        <!-- End Tags -->
-
-      <!-- Swiper Slider -->
-      <div class="row row-cols-2 row-cols-sm-2 row-cols-md-3">
-          <?php
- $conn = new mysqli("$host", "$User", "$Pass", "$dbname");
-          // Check connection
-          if ($conn->connect_error) {
-              die("Connection failed: " . $conn->connect_error);
-          }
-
-          $sql = "SELECT * FROM article WHERE article_type = 'Customer Feedback' ORDER BY article_Timestamp DESC LIMIT 3";
-          $result = $conn->query($sql);
-
-
-          ?>
-
-          <?php while ($row = $result->fetch_assoc()) : ?>
-              <!-- Start Col -->
-              <div class="col mb-5 mb-md-0">
-                  <!-- Card -->
-                  <div class="card">
-                      <div class="card-body" style="">
-                          <iframe class="card-img" width="294" height="300"
-                                  src=<?= $row['article_ConEn1'] ?>>
-                          </iframe>
-                      </div>
-                      <!-- End Card -->
-                      <div class="card-footer bg-light">
-                          <!-- Media -->
-                          <div class="d-sm-flex align-items-sm-center">
-                              <div class="flex-grow-1 ms-sm-3">
-                                  <h6 class="mb-0"><?= $row['article_Header'] ?></h6>
-                              </div>
-                          </div>
-                          <!-- End Media -->
-                      </div>
-                  </div>
-              </div>
-
-              <!-- End Col -->
-          <?php endwhile ?>
-      </div>
     </div>
+    <!-- End Features -->
+
   </div>
   <!-- End Testimonials -->
 </main>

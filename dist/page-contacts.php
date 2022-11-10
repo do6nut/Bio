@@ -48,10 +48,10 @@
       <div class="container content-space-1 content-space-lg-1">
         <div class="row">
 
-          <div class="col-lg-6 mb-10 mb-lg-0">
-            <div class="pe-lg-10">
+          <div class="col-lg-6 mb-10 mb-lg-0 ">
+            <div class="pe-lg-10 ">
               <div class="mb-5">
-                <h3>Our office</h3>
+                <h2>Address</h2>
               </div>
                 <div class="mb-5">
                     <div>
@@ -67,8 +67,66 @@
               <!-- Info -->
               <address>
                 <span class="d-block fs-3 fw-bold text-dark mb-2">Office:</span>
-                  9/113 SOI SUKSAWAT 30, YEAK 10, SUKSAWAT ROAD, BANGPAKOK, RATBURANA, BANGKOK 10140, THAILAND<br>
+                  Bio Shine Co.,Ltd. 9/113 SOI SUKSAWAT 30, YEAK 10, SUKSAWAT ROAD, BANGPAKOK, RATBURANA, BANGKOK 10140, THAILAND<br>
               </address>
+                <div class="row">
+                    <div class="col-sm-6 mb-4 mb-sm-0">
+                        <!-- Form -->
+                        <div class="mb-4">
+                            <i class="bi bi-telephone"> </i>
+                            <label class="form-label" for="contactsFormFirstName">Tel. 0 2108 8844</label>
+                        </div>
+                        <!-- End Form -->
+                    </div>
+                    <!-- End Col -->
+
+                    <div class="col-sm-6">
+                        <!-- Form -->
+                        <div class="mb-4">
+                            <i class="bi bi-printer"></i>
+                            <label class="form-label" for="contactsFormFirstName">Fax. 0 2108 8843</label>
+                        </div>
+                        <!-- End Form -->
+                    </div>
+                    <!-- End Col -->
+                </div>
+                <!-- End Row -->
+                <div class="row">
+                    <div class="col-sm-6 mb-4 mb-sm-0">
+                        <!-- Form -->
+                        <div class="mb-4">
+                            <i class="bi bi-envelope"></i>
+                            <label class="form-label" for="contactsFormFirstName">cs.bioshine@gmail.com</label>
+                        </div>
+                        <!-- End Form -->
+                    </div>
+                    <!-- End Col -->
+
+                    <div class="col-sm-6">
+                        <!-- Form -->
+                        <div class="mb-4">
+                            <i class="bi bi-line"></i>
+                            <label class="form-label" for="contactsFormFirstName">Line @bioshineofficial</label>
+                        </div>
+                        <!-- End Form -->
+                    </div>
+                    <!-- End Col -->
+                </div>
+                <!-- End Row -->
+                <div class="row">
+                    <div class="col-sm-6 mb-4 mb-sm-0">
+                        <!-- Form -->
+                        <div class="mb-4">
+                            <i class="bi bi-facebook"></i>
+                            <label class="form-label" for="contactsFormFirstName">Bioshine</label>
+                        </div>
+                        <!-- End Form -->
+                    </div>
+                    <!-- End Col -->
+                </div>
+                <!-- End Row -->
+
+
               <!-- End Info -->
             </div>
           </div>

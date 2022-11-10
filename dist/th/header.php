@@ -281,11 +281,6 @@
               <!-- End Mega Menu -->
             </li>
             <!-- End Language -->
-
-            <li class="nav-item">
-              <a class="btn btn-primary btn-lg" href="./admin/login.php">Sign up</a>
-            </li>
-
           </ul>
         </div>
       </div>

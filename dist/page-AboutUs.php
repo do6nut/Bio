@@ -43,20 +43,31 @@
       <div class="w-lg-75 mx-lg-auto">
         <div class="text-center mb-5">
 
-          <h1 class="display-4">About Us</h1>
-          <p class="lead">BIO SHINE CO.,LTD. established since 2013 focus on feed additives.
-            The company is the cooperation of marketers and
-            animal feed specialists with collective experiences
-            of more than 20 years.
-            We offer alternative to the industry by focusing on
-            customer-centric and continue to develop every
-            aspects of feed additive market together with
-            partners, suppliers and customers as well as
-            relevant organizations. We have experience in pet
-            industry, feed ingredients industry as well as feed
-            mills and integrated farm for both terrestrial and
-            aquatic animals.
-          </p>
+          <h1 class="display-4">History</h1>
+            <div class="container content-space-t-3 content-space-t-lg-3 content-space-b-2 content-space-b-lg-3 ">
+
+            <div class="row">
+                <!-- Start Col -->
+                <div class="col-2 col-sm-4">
+            <div class="card-transition-zoom-item ">
+                <img class="img-fluid" src="./assets/img/uploads/CEO.png">
+            </div>
+                </div>
+                <div class="col-2 col-sm-8">
+                    <div class="card-transition-zoom-item">
+                        <h4 class="text-primary" >BIO SHINE CO.,LTD.</h4>
+                        <h4> Established since
+                            2013 focus on feed additives. The company is
+                            the cooperation of marketers and animal
+                            feed specialists with collective experiences
+                            of more than 20 years.</h4>
+                            <h4 align="right" class="text-secondary" >
+                                Focusing on customer-centric and to continue to
+                                Develop with partners, suppliers and customers
+                                as well as relevant. </h4>
+                    </div>
+                </div>
+            </div>
         </div>
 
     </div>
@@ -68,7 +79,7 @@
 <!--      <section class="g-py-100">-->
         <div class="container">
           <div class=" g-mb-50">
-            <h2 >A brief  History of Bio Shine
+            <h2 >Evolution Timeline
 <!--              <span class="g-color-primary g-ml-5">#03</span>-->
             </h2>
           </div>
@@ -88,13 +99,12 @@
 
                 <div class="col-md-9 g-order-3 g-order-2--sm px-0 g-mb-15 g-mb-0--md">
                   <div class="media d-block d-md-flex">
-                    <div class=" g-width-120 g-width-170--md g-height-120 g-height-170--md g-overlay-black-0_7 g-overlay-none--parent-hover g-rounded-50x g-ml-12--md g-mr-60--md g-mr-60--md g-mb-15 g-mb-0--md g-transition-0_2 g-transition--ease-in">
-                      <img class="img-fluid g-rounded-50x" src="./assets/img/BioShine/ab1.jpg" alt="Image description">
+                      <div class=" g-width-120 g-width-170--md g-height-120 g-height-170--md g-overlay-black-0_7 g-overlay-none--parent-hover g-rounded-50x g-ml-12--md g-mr-60--md g-mr-60--md g-mb-15 g-mb-0--md g-transition-0_2 g-transition--ease-in ">
+                          <img class="img-fluid g-rounded-50x" src="./assets/img/BioShine/Asset1.png" alt="Image description">
                     </div>
 
-                    <div class="media-body align-self-center">
-                      <p class="lead">To be Professional team in the market, 1st choice for customer solutions.</p>
-<!--                      <p class="g-color-gray-dark-v5 float-md-right">To be Professional team in the market, 1st choice for customer solutions.</p>-->
+                    <div class="align-self-center">
+                        <span STYLE="font-size:20px" class="text-primary">To be Professional team in the market, 1st choice for customer solutions.</span>
                     </div>
                   </div>
                 </div>
@@ -116,12 +126,13 @@
                 <div class="col-md-9 g-order-1 g-order-2--sm px-0 g-mb-15 g-mb-0--md">
                   <div class="media d-block d-md-flex">
                     <div class=" g-width-120 g-width-170--md g-height-120 g-height-170--md g-overlay-black-0_7 g-overlay-none--parent-hover g-rounded-50x g-ml-12--md g-mr-60--md g-mr-60--md g-mb-15 g-mb-0--md g-transition-0_2 g-transition--ease-in ">
-                      <img class="img-fluid g-rounded-50x" src="./assets/img/BioShine/ab2.jpg" alt="Image description">
+                      <img class="img-fluid g-rounded-50x" src="./assets/img/BioShine/Asset4.png" alt="Image description">
                     </div>
 
-                    <div class="media-body align-self-center">
+                    <div class="align-self-center">
+                        <span STYLE="font-size:20px" class="text-primary">Digital transformation and innovation. </span>
 <!--                      <h3 class="text-uppercase g-font-weight-600 g-font-size-18 g-color-gray-dark-v1 g-mb-10">Digital transformation</h3>-->
-                      <p class="lead"> Digital transformation and innovation. </p>
+<!--                      <p class="lead"> Digital transformation and innovation. </p>-->
                     </div>
                   </div>
                 </div>
@@ -145,7 +156,7 @@
                     <div class=" g-width-120 g-width-170--md g-height-120 g-height-170--md
                     g-overlay-black-0_7 g-overlay-none--parent-hover g-rounded-50x g-ml-12--md g-mr-60--md
                     g-mr-60--md g-mb-15 g-mb-0--md g-transition-0_2 g-transition--ease-in">
-                    <img class="img-fluid g-rounded-50x" src="./assets/img/BioShine/ab3.jpg" alt="Image description" >
+                    <img class="img-fluid g-rounded-50x" src="./assets/img/BioShine/Asset5.png" alt="Image description" >
 
                     </div>
 
@@ -206,7 +217,7 @@
                 <div class="col-md-9 g-order-1 g-order-2--sm px-0 g-mb-15 g-mb-0--md">
                   <div class="media d-block d-md-flex">
                     <div class="d-md-flex g-width-120 g-width-170--md g-height-120 g-height-170--md g-overlay-black-0_7 g-overlay-none--parent-hover g-rounded-50x g-ml-12--md g-mr-60--md g-mr-60--md g-mb-15 g-mb-0--md g-transition-0_2 g-transition--ease-in">
-                      <img class="img-fluid g-rounded-50x" src="./assets/img/BioShine/ab5.jpg" alt="Image description">
+                      <img class="img-fluid g-rounded-50x" src="./assets/img/BioShine/Asset2.png" alt="Image description">
                     </div>
 
                     <div class="media-body align-self-center">

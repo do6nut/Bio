@@ -34,7 +34,7 @@
   <link rel="stylesheet" href="./assets/css/theme.min.css">
 </head>
 <!-- ========== HEADER ========== -->
-<header id="header" class="navbar navbar-expand-lg navbar-end navbar-light navbar-absolute-top navbar-show-hide"
+<header id="header" class="navbar navbar-expand-lg navbar-center navbar-light navbar-absolute-top navbar-show-hide"
         data-hs-header-options='{
             "fixMoment": 0,
             "fixEffect": "slide"
@@ -67,22 +67,22 @@
         <div class="navbar-absolute-top-scroller">
           <ul class="navbar-nav nav-pills">
             <!-- About us -->
-            <li class="hs-has-mega-menu nav-item">
-              <a id="aboutUsMegaMenu" class="hs-mega-menu-invoker nav-link dropdown-toggle " href="#" role="button" aria-expanded="false">About us</a>
+            <li class="hs-has-sub-menu nav-item">
+              <a class="hs-mega-menu-invoker nav-link dropdown-toggle" href="#" id="aboutUsMegaMenu"
+                 role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
 
               <!-- Mega Menu -->
-              <div class="hs-mega-menu hs-position-right dropdown-menu w-100" aria-labelledby="aboutUsMegaMenu" style="min-width: 42rem;">
+              <div class="hs-sub-menu dropdown-menu" aria-labelledby="aboutUsMegaMenu"
+                   style="min-width: 12rem;">
                 <!-- Main Content -->
                 <div class="navbar-dropdown-menu-inner">
                   <div class="row">
                     <!--                    <div class="col-sm-5 col-lg-3">-->
                     <div>
-                      <span class="dropdown-header">Company</span>
-                      <a class="dropdown-item " href="./page-AboutUs.php">About Us</a>
+                      <a class="dropdown-item " href="./page-AboutUs.php">History</a>
+                        <a class="dropdown-item " href="./page-AboutUs-1.php">History-1</a>
+                        <a class="dropdown-item " href="./page-AboutUs-2.php">History-2</a>
                       <a class="dropdown-item " href="./article-Industry.php?id=69">Mission & Vision</a>
-                      <a class="dropdown-item " href="./article-Industry.php?id=71">Core Values</a>
-                      <a class="dropdown-item " href="./article-Industry.php?id=70">Core Competency</a>
-                      <a class="dropdown-item " href="./page-contacts.php">Contact Us</a>
                     </div>
                   </div>
                   <!-- End Row -->
@@ -95,29 +95,21 @@
 
 
             <!-- Our business -->
-            <li class="hs-has-mega-menu nav-item">
-              <a id="ourBusinessMegaMenu" class="hs-mega-menu-invoker nav-link dropdown-toggle " href="#" role="button" aria-expanded="false">Our business</a>
+            <li class="hs-has-sub-menu nav-item">
+              <a id="ourBusinessMegaMenu" class="hs-mega-menu-invoker nav-link dropdown-toggle" href="./list-market-solution.php"  role="button"
+                 aria-expanded="false">Markets & Solution</a>
 
               <!-- Mega Menu -->
-              <div class="hs-mega-menu hs-position-right dropdown-menu w-100" aria-labelledby="ourBusinessMegaMenu" style="min-width: 42rem;">
+              <div class="hs-sub-menu dropdown-menu " aria-labelledby="ourBusinessMegaMenu"
+                   style="min-width: 20rem;">
                 <!-- Main Content -->
                 <div class="navbar-dropdown-menu-inner">
                   <div class="row">
-                    <div class="col-sm-5 col-lg-3">
-                      <span class="dropdown-header">Feed industry</span>
-                      <a class="dropdown-item " href="article-Industry.php?id=17">Poultry industry</a>
-                      <a class="dropdown-item " href="article-Industry.php?id=18">Swine industry</a>
-                      <a class="dropdown-item " href="article-Industry.php?id=20">Dairy and beef industry</a>
-                      <a class="dropdown-item " href="article-Industry.php?id=19">Aquaculture industry</a>
-                      <a class="dropdown-item " href="article-Industry.php?id=21">Pet food industry</a>
+<!--                    <div class="col-sm-5 col-lg-3">-->
+                      <a class="dropdown-item " href="./list-feed-industry.php">Feed industry</a>
+                      <a class="dropdown-item " href="./list-food-industry.php">Food industry</a>
                     </div>
-
-                    <div class="col-sm-6 col-lg-3 mb-3 mb-lg-0">
-                      <span class="dropdown-header">Food industry</span>
-                      <a class="dropdown-item " href="article-Industry.php?id=119">Food supplement</a>
-                      <a class="dropdown-item " href="article-Industry.php?id=120">Branding creation and OEM product</a>
-                    </div>
-                  </div>
+<!--                  </div>-->
                   <!-- End Row -->
                 </div>
                 <!-- End Main Content -->
@@ -127,11 +119,11 @@
             <!-- End Our business -->
 
             <!-- Our Product -->
-            <li class="hs-has-mega-menu nav-item">
+            <li class="hs-has-sub-menu nav-item">
               <a id="ourProductMegaMenu" class="hs-mega-menu-invoker nav-link dropdown-toggle " href="#" role="button" aria-expanded="false">Our Products</a>
 
               <!-- Mega Menu -->
-              <div class="hs-mega-menu hs-position-right dropdown-menu w-100" aria-labelledby="ourProductMegaMenu" style="min-width: 42rem;">
+              <div class="hs-sub-menu hs-position-right dropdown-menu w-100" aria-labelledby="ourProductMegaMenu" style="min-width: 42rem;">
                 <!-- Main Content -->
                 <div class="navbar-dropdown-menu-inner">
                   <div class="row">
@@ -195,11 +187,11 @@
 
 
             <!-- Sustainable development -->
-            <li class="hs-has-mega-menu nav-item">
+            <li class="hs-has-sub-menu nav-item">
               <a id="SusMegaMenu" class="hs-mega-menu-invoker nav-link dropdown-toggle "
                  href="./list-sustainable-development.php" role="button" aria-expanded="false">Sustainable development</a>
               <!-- Mega Menu -->
-              <div class="hs-mega-menu hs-position-right dropdown-menu w-100" aria-labelledby="SussMegaMenu" style="min-width: 42rem;">
+              <div class="hs-sub-menu dropdown-menu w-100" aria-labelledby="SussMegaMenu" style="min-width: 30rem;">
                 <!-- Main Content -->
                 <div class="navbar-dropdown-menu-inner">
                   <div class="row">
@@ -237,55 +229,32 @@
             </li>
             <!-- End News -->
 
-            <!-- Language -->
-            <li class="hs-has-mega-menu nav-item">
-              <a id="languageMegaMenu" class="hs-mega-menu-invoker nav-link dropdown-toggle " href="#"
-                 src="./assets/vendor/flag-icon-css/flags/1x1/th.svg">
-                <img class="avatar avatar-xss avatar-circle me-2"
-                     src="./us.svg"
-                     alt="Image description" width="3"/>
-              </a>
-              <!-- Mega Menu -->
-              <div class="hs-mega-menu hs-position-right dropdown-menu"
-                   aria-labelledby="languageMegaMenu" style="min-width: 8rem;">
-                <!-- Main Content -->
-                <div class="navbar-dropdown-menu-inner">
-                  <div class="row">
-                    <!--                    <div class="col-sm-6 col-lg-1">-->
-                    <div class="col-sm-7 col-lg-1 w-lg-100">
-                        <span class="d-flex align-items-center " >
-                            <img class="avatar avatar-xss avatar-circle me-2"
-                                 src="./us.svg"
-                                 alt="Image description" width="2"/>
-                          <a class="dropdown-item " href="../index.php" >
-                             English</a>
-                  </span>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-sm-7 col-lg-1 w-lg-100">
-                       <span class="d-flex align-items-center">
-                           <img class="avatar avatar-xss avatar-circle me-2"
-                                src="./th.svg"
-                                alt="Image description" width="2"/>
-                          <a class="dropdown-item " href="./th/index.php">
-                          Thailand
-                         </a>
-                  </span>
-                    </div>
-                  </div>
-                  <!-- End Row -->
-                </div>
-                <!-- End Main Content -->
-              </div>
-              <!-- End Mega Menu -->
+            <!-- News -->
+            <li class=" nav-item">
+              <a id="NewsMegaMenu" class="hs-mega-menu-invoker nav-link " href="./page-contacts.php" >Contact</a>
             </li>
-            <!-- End Language -->
+            <!-- End News -->
 
-            <li class="nav-item">
-              <a class="btn btn-primary btn-lg" href="./admin/login.php">Sign up</a>
-            </li>
-
+              <!-- Language -->
+              <li class="hs-has-sub-menu nav-item">
+                  <a id="languageMegaMenu" class="" href="../index.php"
+                     src="./assets/vendor/flag-icon-css/flags/1x1/th.svg">
+                      <img class="avatar avatar-xss avatar-circle me-2"
+                           src="./us.svg"
+                           alt="Image description" width="3"/>
+                  </a>
+              </li>
+              <!-- End Language -->
+              <!-- Language -->
+              <li class="hs-has-sub-menu nav-item">
+                  <a id="languageMegaMenu" class="" href="./th/index.php"
+                     src="./assets/vendor/flag-icon-css/flags/1x1/th.svg">
+                      <img class="avatar avatar-xss avatar-circle me-2"
+                           src="./th.svg"
+                           alt="Image description" width="3"/>
+                  </a>
+              </li>
+              <!-- End Language -->
           </ul>
         </div>
       </div>
